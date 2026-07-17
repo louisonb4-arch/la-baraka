@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — La Baraka · Nantes</title>
-<meta name="description" content="Politique de confidentialité du site La Baraka, smash burgers trempés au fromage à Nantes Pirmil.">
+<meta name="description" content="Politique de confidentialité du site La Baraka : aucun cookie, aucune mesure d'audience, aucun formulaire.">
 <meta name="robots" content="noindex,follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white' stroke='%231A1310' stroke-width='2'/%3E%3Crect x='20' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='44' y='10' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='68' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Ctext x='50' y='63' font-family='Arial Black,sans-serif' font-weight='900' font-size='34' fill='%23DA251C' text-anchor='middle'%3EB%3C/text%3E%3Crect x='32' y='74' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='56' y='74' width='12' height='12' fill='%23DA251C'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/font/archivo-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/font/anton-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/font/fonts.css">
 <style>
   :root{
     --rouge:#DA251C;--rouge-fonce:#A81810;--jaune:#F5B301;--jaune-clair:#FFD34D;
@@ -22,6 +22,7 @@
   ::selection{background:var(--jaune);color:var(--noir)}
   a{color:var(--rouge);text-decoration:none}
   a:hover{text-decoration:underline}
+  :focus-visible{outline:3px solid var(--noir);outline-offset:3px}
 
   .legal-nav{
     position:sticky;top:0;z-index:50;
@@ -58,6 +59,7 @@
     transform:rotate(-1.5deg);
   }
   .legal-head h1{font-size:clamp(2.4rem,6.4vw,4rem);text-shadow:4px 4px 0 var(--noir)}
+  .legal-head .lede{margin-top:18px;max-width:56ch;font-weight:500}
   .legal-head .updated{margin-top:16px;font-weight:600;font-size:.9rem;color:var(--creme);opacity:.9}
 
   main{max-width:820px;margin:0 auto;padding:64px 24px 40px}
@@ -69,13 +71,60 @@
   section.block h2{
     font-size:1.5rem;color:var(--rouge);margin-bottom:14px;
     padding-bottom:10px;border-bottom:2px solid var(--noir);
+    scroll-margin-top:80px;
   }
   section.block p{margin-bottom:12px;max-width:66ch}
   section.block p:last-child{margin-bottom:0}
-  section.block ul{margin:0 0 12px;padding-left:22px;max-width:66ch}
-  section.block li{margin-bottom:8px}
-  .ph{background:rgba(218,37,28,.1);border:1px dashed var(--rouge);color:var(--rouge-fonce);font-weight:700;padding:1px 6px;border-radius:3px;white-space:nowrap}
-  .disclaimer{margin-top:8px;font-size:.82rem;color:#7a6f64;font-style:italic;max-width:66ch}
+  section.block ul{margin:0 0 12px;padding-left:0;max-width:66ch;list-style:none}
+  section.block li{margin-bottom:8px;padding-left:22px;position:relative}
+  section.block li::before{content:"▪";position:absolute;left:0;color:var(--rouge);font-size:.9em}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:rgba(26,19,16,.07);padding:1px 5px;border-radius:3px}
+
+  .legal-id{margin:18px 0 8px;padding:0;list-style:none;max-width:none}
+  .legal-id li{
+    display:flex;align-items:baseline;gap:8px;
+    padding:8px 0;margin:0;border-bottom:1px dashed rgba(26,19,16,.22);
+  }
+  .legal-id li::before{content:none}
+  .legal-id .k{color:var(--brun);font-weight:600;white-space:nowrap}
+  .legal-id .lead{
+    flex:1;min-width:16px;align-self:center;height:2px;
+    background-image:radial-gradient(circle,rgba(26,19,16,.4) 1px,transparent 1px);
+    background-size:5px 2px;background-repeat:repeat-x;background-position:0 center;
+  }
+  .legal-id .v{font-weight:700;text-align:right}
+
+  /* Trou assumé : ce qui n'a pas pu être vérifié se voit. */
+  .manque{
+    background:#FFD9E2;color:#7A0B26;
+    padding:1px 7px;border-radius:2px;font-weight:600;font-size:.94em;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  }
+
+  .legal-source{
+    background:var(--blanc);border:2px solid var(--noir);border-left:6px solid var(--jaune);
+    box-shadow:4px 4px 0 rgba(26,19,16,.18);
+    padding:16px 20px;margin:20px 0;font-size:.9rem;max-width:66ch;
+  }
+  .legal-source strong{color:var(--rouge)}
+
+  .legal-sep{
+    height:14px;margin:52px 0;border:2px solid var(--noir);
+    background-image:
+      linear-gradient(45deg,var(--noir) 25%,transparent 25%,transparent 75%,var(--noir) 75%),
+      linear-gradient(45deg,var(--noir) 25%,transparent 25%,transparent 75%,var(--noir) 75%);
+    background-size:14px 14px;background-position:0 0,7px 7px;background-color:var(--creme);
+  }
+
+  .legal-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:52px;padding-top:28px;border-top:2px solid var(--noir)}
+  .legal-actions a{
+    font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;
+    border:2px solid var(--noir);padding:11px 18px;box-shadow:4px 4px 0 var(--noir);
+    transition:transform .15s,box-shadow .15s;
+  }
+  .legal-actions .a-rouge{background:var(--rouge);color:var(--creme)}
+  .legal-actions .a-creme{background:var(--creme);color:var(--noir)}
+  .legal-actions a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--noir);text-decoration:none}
 
   footer{
     background:var(--noir);color:#8f8377;text-align:center;
@@ -86,12 +135,22 @@
   footer .foot-legal a{color:#b8ab9d;text-decoration:none;transition:color .2s}
   footer .foot-legal a:hover{color:var(--jaune)}
   footer .foot-legal .sep{color:#5c534b;margin:0 8px}
+  footer .foot-sign{margin-top:8px}
+  footer .foot-sign a{color:var(--creme);font-weight:700;text-decoration:none}
+  footer .foot-sign a:hover{color:var(--jaune)}
 
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+  }
   @media(max-width:560px){
     .legal-nav{padding:12px 16px}
     .legal-head{padding:52px 18px 44px}
     main{padding:44px 18px 32px}
     section.block{margin-bottom:36px}
+    .legal-id li{flex-wrap:wrap;gap:2px}
+    .legal-id .lead{display:none}
+    .legal-id .v{text-align:left;width:100%}
   }
 </style>
 </head>
@@ -104,78 +163,145 @@
 
 <header class="legal-head">
   <div class="wrap">
-    <span class="eyebrow">Vos données</span>
-    <h1>Politique de confidentialité</h1>
-    <p class="updated">Dernière mise à jour : janvier 2026</p>
+    <span class="eyebrow">Le ticket de caisse</span>
+    <h1>Confidentialité &amp; cookies</h1>
+    <p class="lede">La version courte : ce site ne dépose aucun cookie et ne vous demande rien. Une seule réserve — la photo de la page d'accueil — est expliquée plus bas, sans la maquiller.</p>
+    <p class="updated">Dernière mise à jour : 17 juillet 2026</p>
   </div>
 </header>
 
 <main>
+
   <div class="legal-note">
-    Ce site est un site vitrine. Il ne comporte ni formulaire, ni espace membre, ni outil de suivi publicitaire. La collecte de données personnelles y est donc très limitée.
+    Ce site est un site vitrine : ni formulaire, ni compte, ni newsletter, ni mesure d'audience, ni pixel publicitaire. Ce qui suit décrit exactement ce qu'il fait — y compris le point qui reste à corriger.
   </div>
 
   <section class="block">
-    <h2>Responsable du traitement</h2>
-    <p>Les données éventuellement traitées dans le cadre de ce site le sont sous la responsabilité de <span class="ph">[NOM DE L'ENTREPRISE]</span>, exploitant le restaurant La Baraka, 16 rue Esnoul des Châtelets, 44200 Nantes.</p>
-    <p>Contact : <span class="ph">[EMAIL]</span> — <a href="tel:+33699844955">06 99 84 49 55</a></p>
+    <h2>Qui est responsable de ce site</h2>
+    <p>
+      <strong>BARAKA</strong>, société par actions simplifiée immatriculée sous le numéro SIREN 931 996 607, dont le siège est situé 16 rue Esnoul des Châtelets, 44200 Nantes, est responsable du traitement au sens du règlement (UE) 2016/679 (RGPD).
+    </p>
+    <p>
+      Contact : <a href="tel:+33699844955">06 99 84 49 55</a> ·
+      <span class="manque">[e-mail à fournir]</span>
+    </p>
+    <p>
+      Compte tenu de la nature et du volume des traitements réalisés par ce site, la désignation d'un délégué à la protection des données n'est pas requise.
+    </p>
   </section>
 
   <section class="block">
-    <h2>Quelles données sont collectées</h2>
-    <p>Ce site ne collecte aucune donnée personnelle via un formulaire : il n'existe ni formulaire de contact, ni inscription, ni newsletter, ni prise de commande directe sur le site.</p>
-    <p>Les seules données susceptibles d'être traitées sont :</p>
+    <h2>Quelles données ce site collecte</h2>
+    <p><strong>Aucune.</strong> Le détail :</p>
     <ul>
-      <li>les <strong>données techniques de connexion</strong> (adresse IP, type de navigateur, pages consultées) automatiquement enregistrées par l'hébergeur dans ses journaux serveur, à des fins de sécurité et de bon fonctionnement ;</li>
-      <li>les données que vous transmettez <strong>volontairement</strong> si vous nous contactez par téléphone ou par les réseaux sociaux.</li>
+      <li>il n'y a aucun formulaire de contact, de commande ou d'inscription ;</li>
+      <li>il n'y a aucun compte utilisateur, donc aucun identifiant ;</li>
+      <li>il n'y a aucune newsletter, donc aucune adresse e-mail collectée ;</li>
+      <li>il n'y a aucun paiement, donc aucune donnée bancaire ;</li>
+      <li>il n'y a aucun outil de mesure d'audience, aucun pixel publicitaire, aucun traceur ;</li>
+      <li>les polices de caractères sont hébergées sur le serveur du site : votre navigateur ne contacte aucun serveur tiers pour les charger ;</li>
+      <li>aucune carte, aucune vidéo, aucun module de commande et aucun widget tiers n'est intégré dans les pages.</li>
     </ul>
+    <p>
+      Autrement dit, aucun traitement de données à caractère personnel n'est mis en œuvre par ce site. Les droits d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité prévus par le RGPD n'ont, en pratique, aucune donnée sur laquelle s'exercer ici.
+    </p>
+
+    <div class="legal-source">
+      <strong>Une réserve, et elle est réelle.</strong> La photographie du burger affichée sur la page d'accueil n'est pas hébergée sur le serveur de ce site : elle est chargée depuis <code>uploads.lebonbon.fr</code> (le serveur d'un média, derrière Cloudflare), avec <code>tb-static.uber.com</code> en secours si la première ne répond pas. Votre navigateur contacte donc un serveur tiers à l'ouverture de la page d'accueil, ce qui transmet à celui-ci votre <strong>adresse IP</strong>, la page d'où vient la demande et votre type de navigateur. Vérifié le 17 juillet 2026 : <strong>ces serveurs ne déposent aucun cookie</strong> et ne renvoient aucun en-tête <code>Set-Cookie</code>. Il ne s'agit donc pas d'un traceur, mais d'une transmission d'adresse IP qui n'a pas lieu d'être. <strong>Cette image doit être remplacée par une photographie hébergée sur le serveur du site</strong> — le point est signalé comme bloquant à l'éditeur.
+    </div>
+  </section>
+
+  <div class="legal-sep" aria-hidden="true"></div>
+
+  <section class="block">
+    <h2 id="cookies">Cookies</h2>
+    <p>
+      <strong>Ce site ne dépose aucun cookie</strong> — ni cookie de mesure d'audience, ni cookie publicitaire, ni cookie de préférence, ni même cookie strictement nécessaire. Il n'utilise pas davantage le stockage local de votre navigateur (<code>localStorage</code>, <code>sessionStorage</code>).
+    </p>
+    <p>
+      L'article 82 de la loi Informatique et Libertés impose de recueillir le consentement avant tout dépôt de cookie non strictement nécessaire. Aucun cookie n'étant déposé, il n'y a rien à consentir : c'est pourquoi vous ne verrez aucune bannière sur ce site. Afficher une fenêtre de consentement qui ne servirait à rien serait une gêne inutile. C'est un choix, pas un oubli.
+    </p>
+    <p>
+      Vous pouvez le vérifier vous-même : ouvrez la console de votre navigateur et tapez <code>document.cookie</code>. La réponse est une chaîne vide.
+    </p>
+    <p>
+      La photographie tierce décrite plus haut ne change pas ce constat : elle transmet une adresse IP, mais ne dépose ni cookie ni identifiant. Elle n'entre donc pas dans le champ de l'article 82 — ce qui ne la rend pas souhaitable pour autant.
+    </p>
+    <p>
+      Si un outil de mesure d'audience, une carte intégrée, un module de commande ou un pixel publicitaire venait à être ajouté, cette page serait mise à jour et un dispositif de consentement serait mis en place — avec un refus aussi simple que l'acceptation, un choix modifiable à tout moment, et aucun dépôt avant consentement.
+    </p>
   </section>
 
   <section class="block">
-    <h2>Pourquoi et comment elles sont utilisées</h2>
-    <p>Les données techniques servent uniquement à assurer la disponibilité, la sécurité et la stabilité du site. Elles ne font l'objet d'aucun profilage ni d'aucune exploitation commerciale.</p>
-    <p>Si vous nous contactez directement, vos coordonnées sont utilisées uniquement pour répondre à votre demande.</p>
+    <h2>Les journaux de connexion de l'hébergeur</h2>
+    <p>
+      Comme tout site accessible sur internet, les serveurs qui l'hébergent enregistrent techniquement les requêtes reçues (adresse IP, date et heure, page demandée, type de navigateur). Ces journaux relèvent de l'hébergeur et poursuivent une finalité de sécurité et de bon fonctionnement, sur la base de l'intérêt légitime (article 6.1.f du RGPD).
+    </p>
+    <ul class="legal-id">
+      <li><span class="k">Hébergeur</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
+      <li><span class="k">Durée de conservation</span><span class="lead"></span><span class="v"><span class="manque">[à fournir — selon la politique de l'hébergeur]</span></span></li>
+      <li><span class="k">Transferts hors UE</span><span class="lead"></span><span class="v"><span class="manque">[à vérifier selon l'hébergeur retenu]</span></span></li>
+    </ul>
+    <p>
+      Ce bloc doit être complété une fois l'hébergeur arrêté. Il ne doit mentionner que des sous-traitants réellement utilisés.
+    </p>
   </section>
 
-  <section class="block">
-    <h2>Durée de conservation</h2>
-    <p>Les journaux techniques de l'hébergeur sont conservés pour une durée limitée définie par ce dernier (généralement quelques semaines à quelques mois). Les échanges directs sont conservés le temps nécessaire au traitement de votre demande, puis supprimés.</p>
-  </section>
+  <div class="legal-sep" aria-hidden="true"></div>
 
   <section class="block">
-    <h2>Qui peut y accéder</h2>
-    <p>Aucune donnée n'est vendue ni cédée à des tiers à des fins commerciales. Les seuls tiers pouvant techniquement accéder à des données sont :</p>
+    <h2>Les liens vers l'extérieur</h2>
+    <p>Certains liens vous emmènent vers des services tiers :</p>
     <ul>
-      <li>l'<strong>hébergeur du site</strong> (<span class="ph">[NOM DE L'HÉBERGEUR]</span>), pour le stockage et la diffusion ;</li>
-      <li>les <strong>services externes</strong> vers lesquels le site propose des liens (Uber Eats, Instagram, Google Maps), qui appliquent leurs propres politiques de confidentialité dès lors que vous les consultez.</li>
+      <li><strong>Uber Eats</strong> — le lien « Livraison Uber Eats ». La commande, le paiement et la livraison se déroulent entièrement sur le site d'Uber Eats, sous ses propres conditions et sa propre politique de confidentialité. Aucun module Uber Eats n'est intégré dans nos pages : rien n'est chargé tant que vous ne cliquez pas.</li>
+      <li><strong>Instagram</strong> (Meta Platforms Ireland Ltd) — les liens vers le compte <a href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener noreferrer">@labaraka_nantes</a>. Aucun contenu Meta n'est intégré dans les pages : les photos de la galerie sont hébergées sur le serveur du site.</li>
+      <li><strong>Google Maps</strong> (Google Ireland Ltd) — le lien « Itinéraire ». Aucune carte n'est intégrée dans les pages : rien n'est chargé depuis Google tant que vous ne cliquez pas.</li>
     </ul>
+    <p>
+      À partir du moment où vous ouvrez l'un de ces liens, vous quittez ce site et vous entrez dans le champ des politiques de confidentialité de ces services, sur lesquelles l'éditeur n'a aucune prise.
+    </p>
   </section>
 
   <section class="block">
-    <h2>Cookies</h2>
-    <p>Ce site n'utilise <strong>pas</strong> de cookies publicitaires, ni d'outils de mesure d'audience (type Google Analytics), ni de pixels de suivi (Meta, TikTok…).</p>
-    <p>Seuls des cookies ou données strictement nécessaires au bon affichage du site peuvent être utilisés. Ceux-ci ne requièrent pas votre consentement préalable et aucun bandeau n'est donc affiché.</p>
-    <p class="disclaimer">Si des outils de mesure d'audience ou de publicité étaient ajoutés ultérieurement, un bandeau de consentement conforme (accepter / refuser / personnaliser) devrait être mis en place et cette politique mise à jour.</p>
+    <h2>Si vous nous écrivez</h2>
+    <p>
+      Quand vous nous contactez par téléphone ou par message privé sur Instagram — pour une commande, une table ou une question sur la carte — ces échanges ne passent pas par ce site. Ils sont traités dans nos outils habituels, uniquement pour répondre à votre demande, sur la base de l'intérêt légitime, et ne servent ni à de la prospection ni à alimenter un fichier. Ils sont conservés le temps nécessaire au traitement de la demande.
+    </p>
   </section>
 
   <section class="block">
-    <h2>Vos droits</h2>
-    <p>Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition sur vos données personnelles.</p>
-    <p>Pour exercer ces droits ou pour toute question, contactez-nous à : <span class="ph">[EMAIL]</span>.</p>
-    <p>Vous pouvez également introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</p>
+    <h2>Réclamation</h2>
+    <p>
+      Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 —
+      <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">cnil.fr</a>.
+    </p>
   </section>
 
-  <p class="disclaimer">Ce document constitue une base professionnelle et ne remplace pas les conseils d'un professionnel du droit. Il doit être adapté aux informations exactes de l'entreprise et validé selon son activité.</p>
+  <section class="block">
+    <h2>Modification</h2>
+    <p>
+      Toute évolution technique du site susceptible de changer ce qui précède fera l'objet d'une mise à jour de cette page, avec une nouvelle date en tête.
+    </p>
+  </section>
+
+  <div class="legal-actions">
+    <a class="a-rouge" href="/">Retour à l'accueil</a>
+    <a class="a-creme" href="/mentions-legales">Mentions légales</a>
+  </div>
+
 </main>
 
 <footer>
   <div class="foot-logo">La Baraka</div>
-  <p>© 2026 La Baraka · 16 rue Esnoul des Châtelets, Nantes — Site de démonstration</p>
+  <p>© 2026 La Baraka · SAS · 16 rue Esnoul des Châtelets, Nantes — Site de démonstration</p>
   <p class="foot-legal">
     <a href="/mentions-legales">Mentions légales</a>
     <span class="sep">·</span>
-    <a href="/politique-confidentialite">Politique de confidentialité</a>
+    <a href="/politique-confidentialite" aria-current="page">Confidentialité</a>
+    <span class="sep">·</span>
+    <a href="/politique-confidentialite#cookies">Cookies</a>
   </p>
+  <p class="foot-sign">Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></p>
 </footer>
 
 </body>
