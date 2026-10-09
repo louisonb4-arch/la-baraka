@@ -1,0 +1,162 @@
+/* ============================================================
+   PAGES LÉGALES & 404 — La Baraka
+   Même charte que l'accueil : rouge / jaune / crème / charbon,
+   Anton + Archivo, ombres pleines, damier du logo.
+   ============================================================ */
+:root{
+  --rouge:#DA251C;--rouge-fonce:#A81810;--jaune:#F5B301;--jaune-clair:#FFD34D;
+  --creme:#FFF8EC;--noir:#1A1310;--blanc:#FFFFFF;--brun:#7B3F1D;--gris:#4a3f38;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Archivo',sans-serif;background:var(--creme);color:var(--noir);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.05;text-transform:uppercase}
+::selection{background:var(--jaune);color:var(--noir)}
+a{color:var(--rouge-fonce);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--rouge)}
+:focus-visible{outline:3px solid var(--noir);outline-offset:3px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--jaune);color:var(--noir);font-weight:800;padding:10px 16px;border:2px solid var(--noir);text-decoration:none}
+.skip:focus{top:12px}
+
+/* NAV */
+.legal-nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:12px 28px;background:rgba(255,248,236,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid var(--noir);
+}
+.legal-nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Anton',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--rouge);letter-spacing:.02em}
+.legal-nav .brand img{width:38px;height:38px}
+.legal-nav .back{
+  font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;
+  color:var(--noir);border:2px solid var(--noir);padding:9px 16px;
+  box-shadow:3px 3px 0 var(--noir);background:var(--creme);
+  transition:transform .15s,box-shadow .15s;
+}
+.legal-nav .back:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--noir);color:var(--noir)}
+
+/* EN-TÊTE */
+.legal-head{
+  background:var(--rouge);color:var(--creme);
+  border-bottom:2px solid var(--noir);
+  padding:72px 24px 60px;position:relative;overflow:hidden;
+}
+.legal-head::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(26,19,16,.2) 1.3px,transparent 1.3px);
+  background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 130%,transparent 45%,black 100%);
+  mask-image:radial-gradient(ellipse at 50% 130%,transparent 45%,black 100%);
+}
+.legal-head .wrap{max-width:820px;margin:0 auto;position:relative}
+.legal-head .eyebrow{
+  display:inline-block;background:var(--jaune);color:var(--noir);
+  font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;
+  padding:6px 14px;margin-bottom:20px;border:2px solid var(--noir);box-shadow:3px 3px 0 var(--noir);
+  transform:rotate(-1.5deg);
+}
+.legal-head h1{font-size:clamp(2.6rem,7vw,4.2rem);text-shadow:4px 4px 0 var(--noir)}
+.legal-head .lede{margin-top:18px;max-width:58ch;font-weight:500}
+.legal-head .updated{margin-top:16px;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+
+/* SOMMAIRE */
+.toc{background:var(--blanc);border:2px solid var(--noir);box-shadow:5px 5px 0 var(--noir);padding:18px 22px;margin-bottom:52px}
+.toc p{font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;color:var(--brun)}
+.toc ol{list-style:none;columns:2;column-gap:28px}
+.toc li{padding:3px 0;break-inside:avoid}
+.toc a{color:var(--noir);text-decoration:none;font-weight:600;font-size:.92rem}
+.toc a:hover{color:var(--rouge)}
+
+/* CONTENU */
+main{max-width:820px;margin:0 auto;padding:64px 24px 40px}
+section.block{margin-bottom:46px}
+section.block h2{
+  font-size:1.5rem;color:var(--rouge);margin-bottom:14px;
+  padding-bottom:10px;border-bottom:2px solid var(--noir);
+}
+section.block h3{
+  font-family:'Archivo',sans-serif;font-size:.95rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.05em;margin:24px 0 8px;color:var(--brun);
+}
+section.block p{margin-bottom:12px;max-width:68ch}
+section.block p:last-child{margin-bottom:0}
+section.block ul{margin:0 0 12px;max-width:68ch;list-style:none}
+section.block li{margin-bottom:8px;padding-left:22px;position:relative}
+section.block li::before{content:"▪";position:absolute;left:0;color:var(--rouge);font-size:.9em}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:rgba(26,19,16,.07);padding:1px 5px;border-radius:3px}
+
+/* Fiche d'identité — lignes de ticket de caisse, comme la carte */
+.legal-id{margin:16px 0 8px;padding:0;list-style:none;max-width:none!important}
+.legal-id li{
+  display:flex;align-items:baseline;gap:8px;
+  padding:8px 0!important;margin:0!important;border-bottom:1px dashed rgba(26,19,16,.22);
+}
+.legal-id li::before{content:none!important}
+.legal-id .k{color:var(--brun);font-weight:600;white-space:nowrap}
+.legal-id .lead{
+  flex:1;min-width:16px;align-self:center;height:2px;
+  background:radial-gradient(circle,rgba(26,19,16,.4) 1px,transparent 1.2px) 0 center/5px 2px repeat-x;
+}
+.legal-id .v{font-weight:700;text-align:right}
+
+/* Donnée encore à fournir par l'exploitant : visible exprès */
+.manque{background:#FFD9E2;color:#7A0B26;padding:1px 7px;font-weight:700;font-size:.94em}
+
+.legal-source{
+  background:var(--blanc);border:2px solid var(--noir);border-left:6px solid var(--jaune);
+  box-shadow:4px 4px 0 rgba(26,19,16,.18);
+  padding:16px 20px;margin:18px 0;font-size:.9rem;max-width:68ch;
+}
+.legal-source strong{color:var(--rouge-fonce)}
+
+/* Réglage mesure d'audience (page cookies) */
+.choix{
+  background:var(--jaune);border:2px solid var(--noir);box-shadow:6px 6px 0 var(--noir);
+  padding:22px 24px;margin:20px 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+}
+.choix p{margin:0!important;font-weight:600}
+.choix strong{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.35rem;text-transform:uppercase;line-height:1.1}
+.choix button{
+  font:inherit;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;
+  background:var(--noir);color:var(--creme);border:2px solid var(--noir);padding:12px 18px;box-shadow:4px 4px 0 var(--rouge);
+  transition:transform .15s,box-shadow .15s;
+}
+.choix button:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--rouge)}
+
+.legal-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:52px;padding-top:28px;border-top:2px solid var(--noir)}
+.legal-actions a{
+  font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;
+  border:2px solid var(--noir);padding:11px 18px;box-shadow:4px 4px 0 var(--noir);
+  transition:transform .15s,box-shadow .15s;
+}
+.legal-actions .a-rouge{background:var(--rouge);color:var(--creme)}
+.legal-actions .a-creme{background:var(--creme);color:var(--noir)}
+.legal-actions a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--noir)}
+.legal-actions .a-rouge:hover{color:var(--creme)}
+.legal-actions .a-creme:hover{color:var(--noir)}
+
+/* DAMIER + PIED DE PAGE */
+.checker-band{height:14px;background:conic-gradient(var(--rouge) 90deg,var(--blanc) 90deg 180deg,var(--rouge) 180deg 270deg,var(--blanc) 270deg) 0 0/14px 14px}
+footer{background:var(--noir);color:#9b8f84;padding:34px 24px;font-size:.82rem;text-align:center}
+footer .foot-logo{font-family:'Anton',sans-serif;color:var(--creme);font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:12px 0 10px}
+footer nav a{color:#d6cabd;text-decoration:none;font-weight:700}
+footer nav a:hover,footer nav a[aria-current="page"]{color:var(--jaune)}
+footer .sign a{color:var(--creme);font-weight:700;text-decoration:none}
+footer .sign a:hover{color:var(--jaune)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+@media(max-width:560px){
+  .legal-nav{padding:10px 16px}
+  .legal-nav .brand span{display:none}
+  .legal-head{padding:52px 18px 44px}
+  main{padding:44px 18px 32px}
+  .toc ol{columns:1}
+  section.block{margin-bottom:38px}
+  .legal-id li{flex-wrap:wrap;gap:2px}
+  .legal-id .lead{display:none}
+  .legal-id .v{text-align:left;width:100%}
+}

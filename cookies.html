@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookies — La Baraka · Nantes</title>
+<link rel="canonical" href="https://la-baraka-jet.vercel.app/cookies">
+<meta name="description" content="Le site de La Baraka ne dépose aucun cookie. Détail des traceurs, de la mesure d'audience sans cookie et réglage de votre choix.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#DA251C">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/font/anton-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/font/fonts.css">
+<link rel="stylesheet" href="/assets/legal.css">
+<script src="/assets/stats.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<nav class="legal-nav" aria-label="Navigation">
+  <a class="brand" href="/"><img src="/favicon.svg" alt="" width="38" height="38"><span>La Baraka</span></a>
+  <a class="back" href="/">← Retour au site</a>
+</nav>
+
+<header class="legal-head">
+  <div class="wrap">
+    <span class="eyebrow">Zéro miette</span>
+    <h1>Cookies</h1>
+    <p class="lede">Ce site ne dépose aucun cookie. Pas de bannière à fermer, rien à accepter : voici exactement ce qu'il fait, et comment régler la seule chose réglable.</p>
+    <p class="updated">Mise à jour : 9 octobre 2026</p>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="block" id="inventaire">
+    <h2>1. Ce qui est déposé sur votre appareil</h2>
+    <ul class="legal-id">
+      <li><span class="k">Cookies</span><span class="lead"></span><span class="v">Aucun</span></li>
+      <li><span class="k">Publicité, pixels, réseaux sociaux</span><span class="lead"></span><span class="v">Aucun</span></li>
+      <li><span class="k">Mesure d'audience</span><span class="lead"></span><span class="v">Vercel Web Analytics, sans cookie</span></li>
+      <li><span class="k">Stockage local</span><span class="lead"></span><span class="v">Uniquement si vous refusez la mesure d'audience</span></li>
+    </ul>
+    <p>La seule information qui puisse être enregistrée dans votre navigateur est la clé <code>baraka-stats</code>, et seulement si vous désactivez la mesure d'audience ci-dessous : elle sert à mémoriser votre refus, rien d'autre.</p>
+    <p>Vous pouvez le vérifier : ouvrez la console de votre navigateur et tapez <code>document.cookie</code> — la réponse est vide.</p>
+  </section>
+
+  <section class="block" id="audience">
+    <h2>2. Mesure d'audience</h2>
+    <p>Nous comptons les pages vues avec un outil anonyme, sans cookie, qui ne vous suit pas d'un site à l'autre (détails dans la <a href="/politique-confidentialite#audience">politique de confidentialité</a>). Ce type de mesure est exempté de consentement par la CNIL — mais vous gardez le droit de vous y opposer :</p>
+    <div class="choix" data-choix>
+      <p><strong data-choix-etat>Mesure d'audience activée</strong><span data-choix-detail>Vos visites sont comptées de façon anonyme.</span></p>
+      <button type="button" data-choix-bouton>Désactiver</button>
+    </div>
+    <p>Si votre navigateur envoie le signal Global Privacy Control ou « Do Not Track », la mesure est désactivée d'office.</p>
+  </section>
+
+  <section class="block" id="banniere">
+    <h2>3. Pourquoi il n'y a pas de bannière</h2>
+    <p>L'article 82 de la loi Informatique et Libertés impose de recueillir votre consentement avant tout dépôt de cookie ou traceur qui n'est pas strictement nécessaire. Ce site n'en dépose aucun, et sa mesure d'audience remplit les conditions d'exemption fixées par la CNIL. Afficher une fenêtre de consentement serait donc une gêne sans objet.</p>
+    <p>Si un outil soumis à consentement venait à être ajouté (carte intégrée, vidéo, module de commande, pixel publicitaire), un dispositif de choix serait mis en place, avec un refus aussi simple que l'acceptation et aucun dépôt avant votre accord.</p>
+  </section>
+
+  <section class="block" id="tiers">
+    <h2>4. Sur les sites tiers</h2>
+    <p>Uber Eats, Instagram et Google Maps ne sont pas intégrés dans nos pages : ce sont de simples liens. Ces services peuvent déposer leurs propres cookies une fois que vous êtes sur leur site, selon leurs propres règles, que vous pouvez régler chez eux.</p>
+  </section>
+
+  <div class="legal-actions">
+    <a class="a-rouge" href="/">Retour à l'accueil</a>
+    <a class="a-creme" href="/politique-confidentialite">Confidentialité</a>
+  </div>
+</main>
+
+<div class="checker-band" aria-hidden="true"></div>
+<footer>
+  <div class="foot-logo">La Baraka</div>
+  <p>BARAKA SAS · 16 rue Esnoul des Châtelets, 44200 Nantes</p>
+  <nav aria-label="Informations légales">
+    <a href="/mentions-legales">Mentions légales</a>
+    <a href="/politique-confidentialite">Confidentialité</a>
+    <a href="/cookies" aria-current="page">Cookies</a>
+    <a href="/mentions-legales#cgu">Conditions d'utilisation</a>
+  </nav>
+  <p class="sign">© 2026 La Baraka · Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></p>
+</footer>
+
+<script>
+  (function(){
+    var box=document.querySelector('[data-choix]'); if(!box) return;
+    var etat=box.querySelector('[data-choix-etat]'), detail=box.querySelector('[data-choix-detail]'), btn=box.querySelector('[data-choix-bouton]');
+    var signal = navigator.globalPrivacyControl===true || navigator.doNotTrack==='1';
+    function lire(){ try{ return localStorage.getItem('baraka-stats')==='off'; }catch(e){ return false; } }
+    function rendu(){
+      var off=lire();
+      if(signal){
+        etat.textContent='Mesure d’audience désactivée';
+        detail.textContent='Votre navigateur demande à ne pas être mesuré : c’est respecté.';
+        btn.hidden=true; return;
+      }
+      etat.textContent = off ? 'Mesure d’audience désactivée' : 'Mesure d’audience activée';
+      detail.textContent = off ? 'Vos visites ne sont plus comptées sur ce navigateur.' : 'Vos visites sont comptées de façon anonyme.';
+      btn.textContent = off ? 'Réactiver' : 'Désactiver';
+      btn.setAttribute('aria-pressed', off ? 'true' : 'false');
+    }
+    btn.addEventListener('click',function(){
+      try{
+        if(lire()) localStorage.removeItem('baraka-stats'); else localStorage.setItem('baraka-stats','off');
+      }catch(e){
+        detail.textContent='Votre navigateur bloque l’enregistrement de ce choix.'; return;
+      }
+      rendu();
+    });
+    rendu();
+  })();
+</script>
+</body>
+</html>

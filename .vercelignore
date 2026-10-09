@@ -1,0 +1,4 @@
+# Notes internes et sources de génération : jamais servies en ligne
+LEGAL-TODO.md
+_src
+.env*

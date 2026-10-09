@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../assets/font/fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#DA251C;position:relative;overflow:hidden;font-family:'Archivo',sans-serif}
+body::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(26,19,16,.22) 1.3px,transparent 1.3px);background-size:22px 22px}
+.ghost{position:absolute;left:-20px;bottom:-70px;font-family:'Anton';font-size:300px;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,248,236,.13)}
+.copy{position:absolute;left:70px;top:70px}
+.logo{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.logo svg{width:64px;height:64px}
+.logo span{font-weight:800;font-size:26px;color:#FFF8EC;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.logo small{display:block;font-size:13px;letter-spacing:.32em;color:#1A1310;margin-top:4px}
+h1{font-family:'Anton';font-weight:400;text-transform:uppercase;font-size:96px;line-height:1.0}
+h1 i{display:block;font-style:normal}
+.l1{color:#FFF8EC;text-shadow:5px 5px 0 #1A1310}.l2{color:transparent;-webkit-text-stroke:2.5px #FFF8EC}.l3{color:#F5B301;text-shadow:5px 5px 0 #1A1310;-webkit-text-stroke:1.5px #1A1310;paint-order:stroke fill}
+.meta{margin-top:30px;display:inline-block;background:#1A1310;color:#FFF8EC;font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:.08em;padding:10px 18px}
+.pol{position:absolute;right:80px;top:64px;width:330px;background:#fff;padding:12px 12px 52px;border:2px solid #1A1310;box-shadow:12px 12px 0 #1A1310;transform:rotate(4deg)}
+.pol img{width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid #1A1310;display:block}
+.pol p{position:absolute;left:0;right:0;bottom:15px;text-align:center;font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+.badge{position:absolute;right:368px;top:430px;width:150px;height:150px;border-radius:50%;background:#F5B301;border:3px solid #1A1310;box-shadow:5px 5px 0 #1A1310;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg)}
+.badge b{font-family:'Anton';font-weight:400;font-size:54px;line-height:1;color:#DA251C;-webkit-text-stroke:1px #1A1310}
+.badge span{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.check{position:absolute;left:0;right:0;bottom:0;height:22px;background:conic-gradient(#DA251C 90deg,#fff 90deg 180deg,#DA251C 180deg 270deg,#fff 270deg) 0 0/22px 22px;border-top:3px solid #1A1310}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+    <pattern id="chk" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#DA251C"/>
+      <rect x="8" y="8" width="8" height="8" fill="#DA251C"/>
+    </pattern>
+    <clipPath id="logo-circle"><circle cx="100" cy="100" r="98"/></clipPath>
+    <symbol id="logo-baraka" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="98" fill="#FFFFFF" stroke="#1A1310" stroke-width="1.5"/>
+      <g clip-path="url(#logo-circle)">
+        <rect x="0" y="0" width="200" height="44" fill="url(#chk)"/>
+        <g fill="#DA251C">
+          <rect x="8" y="44" width="8" height="8"/><rect x="24" y="44" width="8" height="8"/><rect x="48" y="44" width="8" height="8"/><rect x="72" y="44" width="8" height="8"/><rect x="104" y="44" width="8" height="8"/><rect x="136" y="44" width="8" height="8"/><rect x="160" y="44" width="8" height="8"/><rect x="184" y="44" width="8" height="8"/>
+          <rect x="16" y="52" width="8" height="8"/><rect x="64" y="52" width="8" height="8"/><rect x="128" y="52" width="8" height="8"/><rect x="176" y="52" width="8" height="8"/>
+        </g>
+        <rect x="0" y="156" width="200" height="44" fill="url(#chk)"/>
+        <g fill="#DA251C">
+          <rect x="8" y="148" width="8" height="8"/><rect x="32" y="148" width="8" height="8"/><rect x="56" y="148" width="8" height="8"/><rect x="88" y="148" width="8" height="8"/><rect x="120" y="148" width="8" height="8"/><rect x="152" y="148" width="8" height="8"/><rect x="184" y="148" width="8" height="8"/>
+          <rect x="24" y="140" width="8" height="8"/><rect x="72" y="140" width="8" height="8"/><rect x="136" y="140" width="8" height="8"/><rect x="168" y="140" width="8" height="8"/>
+        </g>
+      </g>
+      <text x="22" y="110" font-family="Archivo, sans-serif" font-weight="800" font-size="24" fill="#DA251C" letter-spacing="-0.5">LA</text>
+      <g fill="#DA251C">
+        <rect x="23" y="115" width="5" height="5"/><rect x="31" y="115" width="5" height="5"/><rect x="39" y="115" width="5" height="5"/>
+      </g>
+      <text x="52" y="112" font-family="Archivo, sans-serif" font-weight="800" font-size="34" fill="#DA251C" letter-spacing="-0.5">BARAKA</text>
+    </symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-scoot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-2-7h4l1 7M13 10l-1-4h-2"/></g></symbol>
+  </defs></svg>
+<div class="ghost">BARAKA</div>
+<div class="copy">
+  <div class="logo"><svg><use href="#logo-baraka"/></svg><span>La Baraka<small>Nantes · Pirmil</small></span></div>
+  <h1><i class="l1">Le burger</i><i class="l2">qu'on trempe</i><i class="l3">dans le fromage</i></h1>
+  <p class="meta">Smash burgers · Halal · 7j/7</p>
+</div>
+<div class="pol"><img src="../img/gant.jpg"><p>Gants fournis.</p></div>
+<div class="badge"><b>4,8★</b><span>sur Google</span></div>
+<div class="check"></div>
+</body></html>

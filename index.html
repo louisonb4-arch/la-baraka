@@ -4,21 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
+  document.documentElement.classList.add('js');
   try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
   window.scrollTo(0,0);
   addEventListener('pageshow',function(){ window.scrollTo(0,0); });
 </script>
-<title>La Baraka — Smash Burgers trempés au fromage · Nantes Pirmil</title>
+<title>La Baraka — Smash burgers trempés au fromage · Nantes Pirmil</title>
 <link rel="canonical" href="https://la-baraka-jet.vercel.app/">
-<meta name="description" content="La Baraka, le restaurant le mieux noté de Nantes. Smash burgers généreusement trempés dans du cheddar ou de la raclette fondue. 16 rue Esnoul des Châtelets, Pirmil.">
+<meta name="description" content="Smash burgers plongés en entier dans le cheddar maison ou la raclette. Halal, ouvert 7j/7, 4,8★ sur Google. 16 rue Esnoul des Châtelets, Pirmil, Nantes.">
+<meta name="theme-color" content="#DA251C">
 <meta property="og:url" content="https://la-baraka-jet.vercel.app/">
-<meta property="og:title" content="La Baraka — Le burger le mieux noté de Nantes">
-<meta property="og:description" content="Smash burgers trempés dans du fromage fondu. 4,9★ sur Google. Pirmil, Nantes.">
+<meta property="og:title" content="La Baraka — Le burger qu'on trempe dans le fromage">
+<meta property="og:description" content="Smash burgers trempés dans le cheddar ou la raclette. 4,8★ sur Google, halal, ouvert 7j/7. Pirmil, Nantes.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white' stroke='%231A1310' stroke-width='2'/%3E%3Crect x='20' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='44' y='10' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='68' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Ctext x='50' y='63' font-family='Arial Black,sans-serif' font-weight='900' font-size='34' fill='%23DA251C' text-anchor='middle'%3EB%3C/text%3E%3Crect x='32' y='74' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='56' y='74' width='12' height='12' fill='%23DA251C'/%3E%3C/svg%3E">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://la-baraka-jet.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La Baraka, Nantes : le burger qu'on trempe dans le fromage — 4,8 étoiles sur Google">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://la-baraka-jet.vercel.app/img/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="assets/font/archivo-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/font/anton-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/gant.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/font/fonts.css">
+<script src="assets/stats.js" defer></script>
 <style>
   :root{
     --rouge:#DA251C;
@@ -29,31 +43,38 @@
     --noir:#1A1310;
     --blanc:#FFFFFF;
     --brun:#7B3F1D;
-    --pain:#E89A3C;
+    --gris:#4a3f38;
+    /* le fromage qui coule — tuile répétée en bas des sections « trempées » */
+    --drip:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 80'%3E%3Cpath fill='%23F5B301' d='M0 0H400V14H372C364 14 362 18 362 26V44C362 52 356 56 350 56S338 52 338 44V26C338 18 334 14 326 14H284C278 14 276 17 276 22V28C276 33 272 36 268 36S260 33 260 28V22C260 17 258 14 252 14H206C198 14 196 19 196 28V60C196 70 189 76 181 76S166 70 166 60V28C166 19 164 14 156 14H104C98 14 96 17 96 23V36C96 42 92 46 87 46S78 42 78 36V23C78 17 76 14 70 14H40C34 14 33 16 33 20V24C33 28 30 30 27 30S21 28 21 24V20C21 16 20 14 14 14H0Z'/%3E%3C/svg%3E");
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
   body{
     font-family:'Archivo',sans-serif;
     background:var(--creme);
     color:var(--noir);
     overflow-x:hidden;
     line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
+  img{max-width:100%;height:auto;display:block}
   h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.02;text-transform:uppercase}
   ::selection{background:var(--jaune);color:var(--noir)}
+  :focus-visible{outline:3px solid var(--noir);outline-offset:3px}
+  .skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--jaune);color:var(--noir);font-weight:800;padding:10px 16px;border:2px solid var(--noir);text-decoration:none}
+  .skip:focus{top:12px}
 
   /* ---------- NAV ---------- */
-  nav{
+  nav.top{
     position:fixed;top:0;left:0;right:0;z-index:100;
     display:flex;justify-content:space-between;align-items:center;
     padding:12px 28px;
-    background:rgba(255,248,236,.94);backdrop-filter:blur(12px);
+    background:rgba(255,248,236,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     border-bottom:2px solid var(--noir);
   }
   .nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
   .nav-logo svg{width:42px;height:42px;flex-shrink:0;transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
-  .nav-logo:hover svg{transform:rotate(-10deg) scale(1.08)}
+  .nav-logo:hover svg{transform:rotate(-10deg)}
   .nav-logo .word{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.12rem;text-transform:uppercase;color:var(--rouge);letter-spacing:.01em;line-height:1}
   .nav-logo .word small{display:block;font-size:.6em;letter-spacing:.32em;color:var(--noir)}
   .nav-links{display:flex;gap:26px;align-items:center}
@@ -66,9 +87,8 @@
     transition:transform .15s,box-shadow .15s!important;
   }
   .nav-cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--noir);color:var(--creme)!important}
-  /* burger mobile */
   .nav-burger{
-    display:none;background:none;border:2px solid var(--noir);
+    display:none;border:2px solid var(--noir);
     width:44px;height:44px;cursor:pointer;padding:10px;
     flex-direction:column;justify-content:space-between;
     box-shadow:3px 3px 0 var(--noir);background:var(--creme);
@@ -77,94 +97,140 @@
   body.menu-open .nav-burger span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
   body.menu-open .nav-burger span:nth-child(2){opacity:0}
   body.menu-open .nav-burger span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
-  @media(max-width:720px){
+  @media(max-width:760px){
     .nav-burger{display:flex}
     .nav-links{
       position:fixed;top:66px;left:0;right:0;
       flex-direction:column;align-items:stretch;gap:0;
       background:var(--creme);border-bottom:2px solid var(--noir);
-      max-height:0;overflow:hidden;
-      transition:max-height .45s cubic-bezier(.16,1,.3,1);
+      max-height:0;overflow:hidden;visibility:hidden;
+      transition:max-height .45s cubic-bezier(.16,1,.3,1),visibility 0s .45s;
     }
-    body.menu-open .nav-links{max-height:400px}
-    .nav-links a{
-      display:block!important;padding:16px 24px;font-size:1rem;
-      border-top:2px solid var(--noir);text-align:center;
-    }
-    .nav-cta{box-shadow:none;border:none;border-top:2px solid var(--noir)!important;margin:0}
+    body.menu-open .nav-links{max-height:420px;visibility:visible;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+    .nav-links a{display:block;padding:16px 24px;font-size:1rem;border-top:2px solid var(--noir);text-align:center}
+    .nav-cta{box-shadow:none;border:none;border-top:2px solid var(--noir)!important}
     .nav-cta:hover{transform:none;box-shadow:none}
   }
 
   /* ---------- HERO ---------- */
-  header{
+  .hero{
     min-height:100svh;
-    display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;padding:78px 24px 30px;
+    display:flex;align-items:center;
+    padding:112px 28px 96px;
     background:var(--rouge);
     position:relative;overflow:hidden;
   }
-  /* texture halftone */
-  header::before{
+  .hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:radial-gradient(rgba(26,19,16,.22) 1.3px,transparent 1.3px);
     background-size:22px 22px;
-    mask-image:radial-gradient(ellipse at 50% 120%,transparent 40%,black 100%);
-    -webkit-mask-image:radial-gradient(ellipse at 50% 120%,transparent 40%,black 100%);
+    mask-image:radial-gradient(ellipse at 30% 110%,transparent 35%,black 100%);
+    -webkit-mask-image:radial-gradient(ellipse at 30% 110%,transparent 35%,black 100%);
   }
-  /* mot géant en fond */
   .hero-ghost{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    font-family:'Anton',sans-serif;font-size:clamp(10rem,30vw,26rem);
-    color:transparent;-webkit-text-stroke:1.5px rgba(255,248,236,.14);
+    position:absolute;left:-2vw;bottom:-6vw;
+    font-family:'Anton',sans-serif;font-size:clamp(9rem,27vw,25rem);line-height:.8;
+    color:transparent;-webkit-text-stroke:1.5px rgba(255,248,236,.13);
     text-transform:uppercase;white-space:nowrap;pointer-events:none;user-select:none;
   }
+  .hero-inner{
+    position:relative;width:100%;max-width:1240px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,1.42fr) minmax(0,.78fr);
+    gap:clamp(32px,5vw,80px);align-items:center;
+  }
   .hero-badge{
-    position:relative;
     display:inline-flex;align-items:center;gap:8px;
     background:var(--jaune);color:var(--noir);
-    font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;
-    padding:9px 20px;border:2px solid var(--noir);
+    font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;
+    padding:9px 18px;border:2px solid var(--noir);
     box-shadow:4px 4px 0 var(--noir);
-    margin-bottom:26px;
-    transform:rotate(-2deg);
+    margin-bottom:28px;transform:rotate(-2deg);
   }
-  header h1{
-    position:relative;
-    font-size:clamp(3.6rem,11.5vw,9.5rem);
-  }
-  header h1 .l1,header h1 .l2,header h1 .l3{
-    display:block;overflow:hidden;
-    padding:0 .12em .1em .06em;margin:0 -.12em -.1em -.06em;
-  }
-  header h1 i{display:block;font-style:normal}
-  header h1 .l1 i{color:var(--creme);text-shadow:5px 5px 0 var(--noir)}
-  header h1 .l2 i{color:transparent;-webkit-text-stroke:2.5px var(--creme)}
-  header h1 .l3 i{color:var(--jaune);text-shadow:5px 5px 0 var(--noir)}
+  .hero h1{font-size:clamp(3.2rem,6.5vw,7rem)}
+  .hero h1 .l{display:block;overflow:hidden;padding:0 .14em .1em .02em;margin:0 -.14em -.1em -.02em}
+  .hero h1 i{display:block;font-style:normal}
+  .hero h1 .l1 i{color:var(--creme);text-shadow:5px 5px 0 var(--noir)}
+  .hero h1 .l2 i{color:transparent;-webkit-text-stroke:2.5px var(--creme)}
+  .hero h1 .l3 i{color:var(--jaune);text-shadow:5px 5px 0 var(--noir);-webkit-text-stroke:2px var(--noir);paint-order:stroke fill}
   .hero-sub{
-    position:relative;
-    color:var(--creme);font-size:clamp(1rem,2.4vw,1.3rem);
-    max-width:580px;margin:28px auto 42px;font-weight:600;
+    color:var(--creme);font-size:clamp(1rem,1.5vw,1.22rem);
+    max-width:520px;margin:28px 0 36px;font-weight:600;
   }
-  .hero-sub mark{background:var(--jaune);color:var(--noir);padding:1px 8px;font-style:normal;font-weight:800}
-  .hero-ctas{position:relative;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-  .btn-jaune,.btn-ghost{
+  .hero-sub mark{background:var(--jaune);color:var(--noir);padding:1px 8px;font-weight:800}
+  .btn-jaune{
     font-family:'Archivo',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;
-    text-decoration:none;padding:17px 34px;border:2px solid var(--noir);cursor:pointer;
-    transition:transform .15s,box-shadow .15s;display:inline-block;
+    text-decoration:none;padding:17px 30px;border:2px solid var(--noir);cursor:pointer;
+    transition:transform .15s,box-shadow .15s,background .15s,color .15s;display:inline-flex;align-items:center;gap:10px;
   }
   .btn-jaune{background:var(--jaune);color:var(--noir);box-shadow:5px 5px 0 var(--noir)}
   .btn-jaune:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--noir)}
-  .btn-ghost{background:transparent;color:var(--creme);border-color:var(--creme);box-shadow:5px 5px 0 rgba(0,0,0,.35)}
-  .btn-ghost:hover{background:var(--creme);color:var(--rouge);transform:translate(-3px,-3px)}
-  /* badge tournant */
-  .spin-badge{
-    position:absolute;right:5vw;bottom:12vh;width:130px;height:130px;
-    animation:spin 14s linear infinite;
-    pointer-events:none;
+  .btn-jaune svg{width:18px;height:18px;flex-shrink:0}
+  .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px}
+  /* actions secondaires : liens texte, jamais des boutons concurrents du CTA */
+  .lien-txt{
+    display:inline-flex;align-items:center;gap:8px;min-height:44px;
+    font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--noir);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;
+    transition:color .2s,text-underline-offset .2s;
   }
-  .spin-badge .center-star{font-size:2.2rem}
-  @media(max-width:900px){.spin-badge{display:none}}
+  .lien-txt:hover{text-underline-offset:8px}
+  .lien-txt svg{width:18px;height:18px;flex-shrink:0}
+  .lien-txt--creme{color:var(--creme)}
+  .lien-txt--creme:hover{color:var(--jaune)}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+    margin-top:30px;color:var(--creme);font-weight:700;font-size:.88rem;
+  }
+  .status{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--noir);color:var(--creme);
+    padding:6px 13px 6px 11px;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;
+  }
+  .status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--jaune);flex-shrink:0}
+  .status.is-open::before{background:#46D97A;box-shadow:0 0 0 3px rgba(70,217,122,.25)}
+  .status.is-closed::before{background:#9b8f84}
+
+  /* photo polaroïd, scotchée au damier */
+  .hero-photo{position:relative;justify-self:center;width:min(100%,410px);transform:rotate(3deg)}
+  .polaroid{background:var(--blanc);padding:12px 12px 54px;border:2px solid var(--noir);box-shadow:12px 12px 0 var(--noir);position:relative}
+  .polaroid img{width:100%;border:2px solid var(--noir);object-fit:cover}
+  .polaroid figcaption{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--noir)}
+  .tape{
+    position:absolute;top:-15px;left:50%;width:110px;height:28px;margin-left:-55px;z-index:2;
+    background:conic-gradient(var(--rouge) 90deg,var(--blanc) 90deg 180deg,var(--rouge) 180deg 270deg,var(--blanc) 270deg) 0 0/14px 14px;
+    border:2px solid var(--noir);transform:rotate(-4deg);opacity:.96;
+  }
+  .sticker{
+    position:absolute;z-index:3;
+    background:var(--jaune);color:var(--noir);
+    font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
+    padding:7px 14px;border:2px solid var(--noir);box-shadow:3px 3px 0 var(--noir);
+  }
+  .hero-photo .sticker{top:46px;left:-30px;transform:rotate(-9deg)}
+  .spin-badge{position:absolute;z-index:3;right:-52px;bottom:38px;width:132px;height:132px;pointer-events:none;filter:drop-shadow(4px 4px 0 var(--noir))}
+  .spin-badge .ring{animation:spin 16s linear infinite;transform-origin:65px 65px}
   @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:900px){
+    .hero{padding:104px 20px 92px;min-height:auto}
+    .hero-inner{grid-template-columns:1fr;gap:56px}
+    .hero h1{font-size:clamp(3rem,13.4vw,6.4rem)}
+    .hero-photo{width:min(76%,360px);justify-self:start;margin-left:6%}
+    .spin-badge{width:104px;height:104px;right:-38px;bottom:30px}
+  }
+
+  /* ---------- FROMAGE QUI COULE ---------- */
+  .drip{position:relative;z-index:6;height:0;pointer-events:none}
+  .drip::before{
+    content:"";position:absolute;left:0;right:0;top:-2px;height:80px;
+    background:var(--drip) repeat-x 0 0/400px 80px;
+    filter:drop-shadow(0 3px 0 var(--noir));
+    transform-origin:50% 0;
+  }
+  .drip--b::before{background-position:-150px 0;background-size:460px 92px;height:92px}
+  .drip--hero::before{background-position:-60px 0}
+  .js [data-drip]::before{transform:scaleY(.15)}
+  .js .drip.grow::before{animation:drip-grow 1.8s cubic-bezier(.25,.9,.3,1) both}
+  @keyframes drip-grow{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
 
   /* ---------- BANDES ---------- */
   .checker-band{
@@ -172,318 +238,317 @@
     background:conic-gradient(var(--rouge) 90deg,var(--blanc) 90deg 180deg,var(--rouge) 180deg 270deg,var(--blanc) 270deg);
     background-size:14px 14px;
   }
-  .marquee{
-    background:var(--noir);color:var(--jaune);
-    overflow:hidden;white-space:nowrap;
-    padding:14px 0;
-  }
-  .marquee-track{display:inline-block;animation:scroll 24s linear infinite}
-  .marquee span{font-family:'Anton',sans-serif;font-size:1.15rem;text-transform:uppercase;margin:0 28px;letter-spacing:.05em}
+  .marquee{background:var(--noir);color:var(--jaune);overflow:hidden;white-space:nowrap;padding:16px 0}
+  .marquee-track{display:inline-block;animation:scroll 28s linear infinite}
+  .marquee span{font-family:'Anton',sans-serif;font-size:1.15rem;text-transform:uppercase;margin:0 26px;letter-spacing:.05em}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- SECTIONS ---------- */
-  section{padding:100px 24px}
-  .wrap{max-width:1100px;margin:0 auto}
+  section{padding:110px 28px}
+  .wrap{max-width:1180px;margin:0 auto}
   .eyebrow{
     display:inline-block;background:var(--rouge);color:var(--creme);
     font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;
     padding:6px 14px;margin-bottom:22px;border:2px solid var(--noir);box-shadow:3px 3px 0 var(--noir);
     transform:rotate(-1.5deg);
   }
-  h2{font-size:clamp(2.3rem,5.8vw,4rem);margin-bottom:22px}
+  .eyebrow--noir{background:var(--noir);color:var(--jaune)}
+  h2{font-size:clamp(2.4rem,5.6vw,4.4rem);margin-bottom:22px}
   h2 em{font-style:normal;color:var(--rouge)}
-  .reveal{transform:translateY(26px);transition:transform .7s cubic-bezier(.2,1,.3,1)}
-  .reveal.on{transform:translateY(0)}
+  .menu h2 em,.insta h2 em{color:var(--rouge-fonce)}
+  .reveal{translate:0 26px;transition:translate .8s cubic-bezier(.2,1,.3,1)}
+  .reveal.on{translate:0 0}
 
   /* ---------- RITUEL ---------- */
-  .rituel{background:var(--creme);position:relative;overflow:hidden}
-  .rituel-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-  @media(max-width:820px){.rituel-grid{grid-template-columns:1fr}}
-  .rituel p{font-size:1.08rem;margin-bottom:18px;max-width:52ch}
+  .rituel{padding-top:140px}
+  .rituel-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .rituel p{font-size:1.08rem;margin-bottom:18px;max-width:50ch}
   .rituel strong{color:var(--rouge)}
-  .steps{display:flex;flex-direction:column;border:2px solid var(--noir);box-shadow:8px 8px 0 var(--noir);background:var(--blanc)}
-  .step{display:flex;gap:18px;align-items:center;padding:22px 24px;border-bottom:2px solid var(--noir);transition:background .2s}
-  .step:hover{background:var(--creme)}
+  .steps{list-style:none;display:flex;flex-direction:column;border:2px solid var(--noir);box-shadow:10px 10px 0 var(--noir);background:var(--blanc)}
+  .step{display:flex;gap:20px;align-items:center;padding:24px 26px;border-bottom:2px solid var(--noir)}
   .step:last-child{border-bottom:none}
   .step-num{
-    font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--creme);background:var(--rouge);
-    min-width:52px;height:52px;display:flex;align-items:center;justify-content:center;
+    font-family:'Anton',sans-serif;font-size:1.7rem;color:var(--creme);background:var(--rouge);
+    min-width:56px;height:56px;display:flex;align-items:center;justify-content:center;
     border:2px solid var(--noir);flex-shrink:0;
   }
   .step:nth-child(2) .step-num{background:var(--jaune);color:var(--noir)}
   .step:nth-child(3) .step-num{background:var(--noir);color:var(--jaune)}
-  .step h3{font-size:1.15rem;margin-bottom:2px}
-  .step p{font-size:.92rem;color:#4a3f38;margin:0}
+  .step h3{font-size:1.25rem;margin-bottom:3px}
+  .step p{font-size:.93rem;color:var(--gris);margin:0}
 
-  /* ---------- LE DIP (illustration) ---------- */
+  /* ---------- LE DIP ---------- */
   .dip{
     background:var(--rouge);
     border-top:2px solid var(--noir);border-bottom:2px solid var(--noir);
     position:relative;overflow:hidden;
-    padding:90px 24px;
   }
   .dip::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:radial-gradient(rgba(26,19,16,.2) 1.3px,transparent 1.3px);
     background-size:22px 22px;
   }
-  .dip-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;position:relative}
-  @media(max-width:820px){.dip-grid{grid-template-columns:1fr;text-align:center}}
-  .dip h2{color:var(--creme);font-size:clamp(3rem,8vw,6rem);text-shadow:5px 5px 0 var(--noir)}
-  .dip h2 em{font-style:normal;color:var(--jaune)}
-  .dip p{color:var(--creme);font-weight:600;font-size:1.1rem;max-width:44ch;margin-top:18px}
-  .dip .burger-svg{width:clamp(240px,30vw,340px);height:auto;filter:drop-shadow(8px 8px 0 rgba(26,19,16,.55));margin:0 auto;animation:float 5s ease-in-out infinite;display:none}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-  /* photo polaroid du vrai burger */
-  .dip-photo{
-    position:relative;
-    background:var(--creme);
-    padding:14px 14px 52px;
-    border:2px solid var(--noir);
-    box-shadow:12px 12px 0 rgba(26,19,16,.55);
-    transform:rotate(2.5deg);
-    width:clamp(260px,32vw,360px);
-    margin:0 auto;
-    transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;
+  .dip-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;position:relative}
+  .dip h2{color:var(--creme);font-size:clamp(3.2rem,8vw,6.6rem);text-shadow:5px 5px 0 var(--noir);margin-bottom:0}
+  .dip h2 em{color:var(--jaune);-webkit-text-stroke:2px var(--noir);paint-order:stroke fill}
+  .dip p{color:var(--creme);font-weight:600;font-size:1.1rem;max-width:44ch;margin-top:22px}
+  .dip-choix{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .dip-choix span{
+    font-family:'Anton',sans-serif;font-size:1.25rem;text-transform:uppercase;letter-spacing:.03em;
+    padding:10px 18px;border:2px solid var(--noir);box-shadow:4px 4px 0 var(--noir);
   }
-  .dip-photo:hover{transform:rotate(0deg) scale(1.02);box-shadow:16px 16px 0 rgba(26,19,16,.55)}
-  .dip-photo img{
-    width:100%;aspect-ratio:1/1;object-fit:cover;display:block;
-    border:2px solid var(--noir);
-  }
-  .dip-photo figcaption{
-    position:absolute;bottom:14px;left:0;right:0;text-align:center;
-    font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--noir);
-  }
-  .dip-photo .photo-sticker{
-    position:absolute;top:-16px;left:-18px;
-    background:var(--jaune);color:var(--noir);
-    font-weight:800;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;
-    padding:7px 14px;border:2px solid var(--noir);box-shadow:3px 3px 0 var(--noir);
-    transform:rotate(-6deg);
-  }
+  .dip-choix span:first-child{background:var(--jaune);color:var(--noir);transform:rotate(-2deg)}
+  .dip-choix span:last-child{background:var(--creme);color:var(--noir);transform:rotate(1.5deg)}
+  .dip-choix b{font-family:'Archivo',sans-serif;font-weight:800;font-size:.8rem;align-self:center;color:var(--creme);text-transform:uppercase;letter-spacing:.1em}
+  .dip-photo{position:relative;width:min(100%,370px);justify-self:center;transform:rotate(2.5deg);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .dip-photo:hover{transform:rotate(0deg)}
+  .dip-photo .polaroid{box-shadow:12px 12px 0 rgba(26,19,16,.55)}
+  .dip-photo .sticker{top:-16px;left:-18px;transform:rotate(-6deg)}
 
-  /* ---------- MENU ---------- */
-  .menu{background:var(--jaune);border-bottom:2px solid var(--noir);position:relative}
-  .menu-groupes{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:52px}
-  @media(max-width:820px){.menu-groupes{grid-template-columns:1fr}}
+  /* ---------- LA CARTE ---------- */
+  .menu{background:var(--jaune);position:relative;padding-bottom:120px}
+  .menu-head{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+  .menu-intro{font-size:1.05rem;font-weight:600;max-width:46ch}
+  .menu-photo{position:relative;width:min(100%,360px);justify-self:end;transform:rotate(-3deg)}
+  .menu-photo .polaroid{padding-bottom:46px}
+  .menu-photo .sticker{bottom:24px;right:-22px;background:var(--rouge);color:var(--creme);transform:rotate(5deg)}
+  .menu-groupes{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:64px;align-items:start}
   .menu-groupe{
     background:var(--creme);border:2px solid var(--noir);box-shadow:8px 8px 0 var(--noir);
-    padding:32px 30px;position:relative;
+    padding:30px 30px 18px;position:relative;
   }
   .menu-groupe:first-child{transform:rotate(-.5deg)}
   .menu-groupe:last-child{transform:rotate(.5deg)}
   .menu-groupe h3{
-    font-size:1.5rem;color:var(--rouge);margin-bottom:20px;
+    font-size:1.6rem;color:var(--rouge);margin-bottom:8px;
     padding-bottom:12px;border-bottom:2px solid var(--noir);
-    display:flex;align-items:center;gap:10px;
+    display:flex;justify-content:space-between;align-items:baseline;
   }
-  .plat{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:2px dashed rgba(26,19,16,.18)}
+  .menu-groupe h3 small{font-family:'Archivo',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:var(--noir)}
+  .plat{
+    display:grid;grid-template-columns:auto 1fr auto;column-gap:10px;align-items:baseline;
+    padding:14px 0;border-bottom:2px dashed rgba(26,19,16,.16);
+  }
   .plat:last-child{border-bottom:none}
   .plat-nom{font-weight:800;color:var(--noir)}
-  .plat-nom .pop{
+  .plat-lead{
+    height:2px;align-self:center;transform:translateY(4px);
+    background:radial-gradient(circle,rgba(26,19,16,.45) 1px,transparent 1.3px) 0 0/6px 2px repeat-x;
+  }
+  .plat-prix{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--rouge);white-space:nowrap}
+  .plat-desc{grid-column:1/-1;font-size:.86rem;color:var(--gris);margin-top:3px;max-width:52ch}
+  .pop{
     display:inline-block;margin-left:8px;background:var(--rouge);color:var(--creme);
     font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
     padding:2px 8px;border:1.5px solid var(--noir);vertical-align:middle;transform:rotate(-2deg);
   }
-  .plat-desc{font-size:.85rem;color:#4a3f38;margin-top:2px;max-width:40ch}
-  .plat-prix{font-family:'Anton',sans-serif;font-size:1.25rem;color:var(--rouge);white-space:nowrap}
-  .menu-foot{margin-top:44px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .menu-foot{margin-top:48px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   .badge-info{
     font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
     background:var(--creme);border:2px solid var(--noir);color:var(--noir);
     padding:8px 15px;box-shadow:3px 3px 0 var(--noir);
-    transition:transform .15s,box-shadow .15s;
   }
-  .badge-info:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--noir)}
+  .menu-legal{margin-top:22px;font-size:.8rem;font-weight:600;color:rgba(26,19,16,.78);max-width:80ch}
 
   /* ---------- AVIS ---------- */
-  .avis{background:var(--creme)}
-  .avis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:52px}
-  .avis-card{
-    background:var(--blanc);border:2px solid var(--noir);box-shadow:7px 7px 0 var(--rouge);
-    padding:30px 28px;position:relative;
-    transition:transform .2s,box-shadow .2s;
+  .avis{padding-top:150px}
+  .avis-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:64px;align-items:start;margin-top:56px}
+  .score{
+    background:var(--blanc);border:2px solid var(--noir);box-shadow:10px 10px 0 var(--rouge);
+    padding:34px 34px 30px;position:relative;
   }
-  .avis-card:nth-child(1){transform:rotate(-1.2deg)}
-  .avis-card:nth-child(2){transform:rotate(.8deg)}
-  .avis-card:nth-child(3){transform:rotate(-.6deg)}
-  .avis-card:hover{transform:rotate(0) translateY(-4px);box-shadow:9px 9px 0 var(--rouge)}
-  .avis-card::before{
-    content:"“";position:absolute;top:-26px;left:14px;
-    font-family:'Anton',sans-serif;font-size:5rem;color:var(--rouge);
-    text-shadow:3px 3px 0 var(--noir);line-height:1;
+  .score-num span{font-size:.3em;color:var(--noir);text-shadow:none;margin-left:.08em;letter-spacing:.02em}
+  .score-num{font-family:'Anton',sans-serif;font-size:clamp(7rem,12vw,10.5rem);line-height:.86;color:var(--rouge);text-shadow:6px 6px 0 var(--noir)}
+  .stars{position:relative;display:inline-block;font-size:1.6rem;letter-spacing:.12em;color:rgba(26,19,16,.15);margin-top:18px;line-height:1}
+  .stars::before{content:"★★★★★";position:absolute;left:0;top:0;width:var(--note,100%);overflow:hidden;color:var(--jaune);-webkit-text-stroke:1px var(--noir)}
+  .score-lbl{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;margin-top:14px}
+  .score-src{font-size:.8rem;color:var(--gris);margin-top:4px}
+  .score a.lien{display:inline-block;margin-top:18px;color:var(--rouge);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+  .sunday{
+    display:block;margin-top:34px;background:var(--noir);color:var(--creme);
+    padding:16px 18px;border:2px solid var(--noir);box-shadow:5px 5px 0 var(--jaune);transform:rotate(-1.5deg);
+    font-size:.86rem;font-weight:600;
   }
-  .avis-card .stars{color:var(--jaune);font-size:1.15rem;letter-spacing:.1em;text-shadow:1px 1px 0 var(--noir)}
-  .avis-card p{font-size:.98rem;margin:16px 0;font-style:italic}
-  .avis-card .who{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--rouge)}
-  .proof{margin-top:64px;display:flex;gap:0;justify-content:center;flex-wrap:wrap;text-align:center}
-  .proof>div{
-    min-width:180px;padding:26px 34px;background:var(--blanc);
-    border:2px solid var(--noir);
+  .sunday strong{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;color:var(--jaune);text-transform:uppercase;line-height:1.05;margin-bottom:4px}
+  .tickets{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .ticket{
+    background:var(--blanc);border:2px solid var(--noir);box-shadow:6px 6px 0 var(--noir);
+    padding:0 0 22px;position:relative;
   }
-  .proof>div:not(:last-child){border-right:none}
-  @media(max-width:640px){.proof>div{border:2px solid var(--noir)!important;margin:-1px}}
-  .proof .big{font-family:'Anton',sans-serif;font-size:3rem;color:var(--rouge)}
-  .proof .lbl{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;max-width:190px;margin:0 auto}
-  .proof-note{text-align:center;margin-top:22px;font-size:.75rem;color:#7a6f64}
+  .ticket:nth-child(1){transform:rotate(-1deg)}
+  .ticket:nth-child(2){transform:rotate(.8deg);margin-top:28px}
+  .ticket:nth-child(3){transform:rotate(.6deg);margin-top:-6px}
+  .ticket:nth-child(4){transform:rotate(-.8deg);margin-top:22px}
+  .ticket-top{
+    display:flex;justify-content:space-between;gap:10px;
+    background:var(--rouge);color:var(--creme);border-bottom:2px solid var(--noir);
+    font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;padding:8px 16px;
+  }
+  .ticket--presse .ticket-top{background:var(--noir);color:var(--jaune)}
+  .ticket blockquote{font-size:1.02rem;font-style:italic;font-weight:500;padding:20px 20px 0;line-height:1.5}
+  .ticket blockquote::before{content:"“";display:block;font-family:'Anton',sans-serif;font-style:normal;font-size:3.2rem;line-height:.7;color:var(--rouge);margin-bottom:4px}
+  .ticket .who{padding:14px 20px 0;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--rouge)}
+
+  /* ---------- INSTAGRAM ---------- */
+  .insta{background:var(--jaune);border-top:2px solid var(--noir);border-bottom:2px solid var(--noir)}
+  .insta-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .insta-head h2{margin-bottom:0}
+  .insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px}
+  .insta-card{
+    display:block;background:var(--blanc);
+    padding:10px 10px 38px;border:2px solid var(--noir);
+    box-shadow:6px 6px 0 var(--noir);
+    text-decoration:none;position:relative;
+    transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;
+  }
+  .insta-card:nth-child(1){transform:rotate(-1.6deg)}
+  .insta-card:nth-child(2){transform:rotate(1.2deg) translateY(18px)}
+  .insta-card:nth-child(3){transform:rotate(-.8deg)}
+  .insta-card:nth-child(4){transform:rotate(1.5deg) translateY(14px)}
+  .insta-card:hover{transform:rotate(0) translateY(-6px);box-shadow:9px 9px 0 var(--rouge);z-index:2}
+  .insta-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--noir)}
+  .insta-card .tag{
+    position:absolute;bottom:10px;left:0;right:0;text-align:center;
+    font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--noir);
+  }
 
   /* ---------- INFOS ---------- */
   .infos{background:var(--noir);color:var(--creme);position:relative;overflow:hidden}
   .infos .eyebrow{background:var(--jaune);color:var(--noir)}
   .infos h2{color:var(--creme)}
   .infos h2 em{color:var(--jaune)}
-  .infos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;margin-top:52px;position:relative}
-  .infos h3{color:var(--jaune);font-size:1.1rem;margin-bottom:14px}
-  .infos p,.infos li{font-size:.95rem;color:#EDE3D2}
-  .infos ul{list-style:none}
-  .infos li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(255,248,236,.15);max-width:310px}
+  .infos-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  .infos-head .status{background:var(--creme);color:var(--noir);font-size:.82rem;padding:9px 16px 9px 13px;border:2px solid var(--creme);margin-bottom:28px}
+  .infos-grid{display:grid;grid-template-columns:.9fr 1.15fr 1fr;gap:48px;margin-top:48px;position:relative}
+  .infos h3{color:var(--jaune);font-size:1.15rem;margin-bottom:16px}
+  .infos p{font-size:.98rem;color:#EDE3D2}
+  .infos .sous{font-size:.88rem;color:#b8ab9d;margin-top:8px}
+  .hours{list-style:none}
+  .hours li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid rgba(255,248,236,.14);font-size:.95rem;color:#EDE3D2}
+  .hours li span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .hours li.today{color:var(--jaune);font-weight:800}
+  .hours li.today span:first-child::after{content:" · aujourd'hui";font-weight:600;font-size:.78rem;text-transform:none}
   .infos a{color:var(--jaune);text-decoration:none;font-weight:700}
   .infos a:hover{text-decoration:underline}
-  .infos a.btn-creme{
-    display:inline-block;margin-top:20px;
-    background:var(--creme);color:var(--noir);
-    font-weight:800;font-size:.88rem;text-transform:uppercase;letter-spacing:.05em;
-    padding:14px 26px;border:2px solid var(--creme);
-    box-shadow:4px 4px 0 var(--rouge);
+  .commander .btn-rouge{margin:14px 0 22px}
+  .infos a.lien-txt--jaune{color:var(--jaune);text-decoration:underline;text-decoration-thickness:2px}
+  .infos a.lien-txt--jaune:hover{color:var(--creme)}
+  .infos-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:22px}
+  .infos a.btn-rouge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:800;font-size:.86rem;text-transform:uppercase;letter-spacing:.05em;
+    padding:14px 24px;border:2px solid var(--creme);
     transition:transform .15s,box-shadow .15s;text-decoration:none;
   }
-  .infos a.btn-creme:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--rouge);text-decoration:none}
+  .infos a.btn-rouge{background:var(--rouge);color:var(--creme);box-shadow:4px 4px 0 var(--jaune)}
+  .infos a.btn-rouge:hover{transform:translate(-2px,-2px);text-decoration:none}
+  .infos a.btn-rouge:hover{box-shadow:6px 6px 0 var(--jaune)}
   .infos-ghost{
-    position:absolute;right:-60px;bottom:-70px;
+    position:absolute;right:-50px;bottom:-60px;
     font-family:'Anton',sans-serif;font-size:16rem;line-height:1;
-    color:transparent;-webkit-text-stroke:1.5px rgba(255,248,236,.08);
+    color:transparent;-webkit-text-stroke:1.5px rgba(255,248,236,.07);
     text-transform:uppercase;pointer-events:none;user-select:none;
   }
 
-  /* ---------- INSTAGRAM ---------- */
-  .insta{background:var(--jaune);border-top:2px solid var(--noir);border-bottom:2px solid var(--noir)}
-  .insta .head{text-align:center}
-  .insta-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
-    margin-top:52px;
-  }
-  @media(max-width:820px){.insta-grid{grid-template-columns:repeat(2,1fr)}}
-  .insta-card{
-    display:block;background:var(--blanc);
-    padding:10px 10px 34px;border:2px solid var(--noir);
-    box-shadow:6px 6px 0 var(--noir);
-    text-decoration:none;position:relative;
-    transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s;
-  }
-  .insta-card:nth-child(1){transform:rotate(-1.6deg)}
-  .insta-card:nth-child(2){transform:rotate(1.1deg)}
-  .insta-card:nth-child(3){transform:rotate(-.7deg)}
-  .insta-card:nth-child(4){transform:rotate(.9deg)}
-  .insta-card:nth-child(5){transform:rotate(-1.2deg)}
-  .insta-card:nth-child(6){transform:rotate(1.4deg)}
-  .insta-card:hover{transform:rotate(0) translateY(-6px);box-shadow:9px 9px 0 var(--rouge);z-index:2}
-  .insta-card img{
-    width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
-    border:2px solid var(--noir);
-  }
-  .insta-card .tag{
-    position:absolute;bottom:8px;left:0;right:0;text-align:center;
-    font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--noir);
-  }
-  .insta-cta{text-align:center;margin-top:52px}
-  .btn-insta{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--rouge);color:var(--creme);
-    font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;
-    text-decoration:none;padding:17px 34px;border:2px solid var(--noir);
-    box-shadow:5px 5px 0 var(--noir);
-    transition:transform .15s,box-shadow .15s;
-  }
-  .btn-insta:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--noir)}
-  .btn-insta svg{width:22px;height:22px;flex-shrink:0}
-  @media(max-width:560px){
-    .insta-grid{gap:14px;margin-top:32px}
-    .insta-card{padding:7px 7px 26px;transform:none!important;box-shadow:4px 4px 0 var(--noir)}
-    .insta-card .tag{font-size:.6rem}
-    .insta-cta{margin-top:36px}
-    .btn-insta{width:100%;justify-content:center;padding:16px 20px}
-  }
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--noir);color:#9b8f84;padding:44px 28px 36px;font-size:.82rem;border-top:1px solid rgba(255,248,236,.12)}
+  .foot{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center}
+  .foot-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .foot-brand svg{width:46px;height:46px}
+  .foot-brand span{font-family:'Anton',sans-serif;color:var(--creme);font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em;line-height:1}
+  .foot-id{line-height:1.7}
+  .foot-id a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:flex-end}
+  .foot-legal a{color:#d6cabd;text-decoration:none;font-weight:700;transition:color .2s}
+  .foot-legal a:hover{color:var(--jaune)}
+  .foot-bottom{max-width:1180px;margin:26px auto 0;padding-top:20px;border-top:1px solid rgba(255,248,236,.1);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .foot-bottom a{color:var(--creme);font-weight:700;text-decoration:none}
+  .foot-bottom a:hover{color:var(--jaune)}
 
-  footer{
-    background:var(--noir);color:#8f8377;text-align:center;
-    padding:30px 24px;font-size:.8rem;border-top:1px solid rgba(255,248,236,.12);
-  }
-  footer .foot-logo{font-family:'Anton',sans-serif;color:var(--creme);font-size:1.15rem;text-transform:uppercase;margin-bottom:6px;letter-spacing:.04em}
-  footer .foot-legal{margin-top:10px}
-  footer .foot-legal a{color:#b8ab9d;text-decoration:none;transition:color .2s}
-  footer .foot-legal a:hover{color:var(--jaune)}
-  footer .foot-legal .sep{color:#5c534b;margin:0 8px}
-  footer .foot-sign{margin-top:8px}
-  footer .foot-sign a{color:var(--creme);font-weight:700;text-decoration:none}
-  footer .foot-sign a:hover{color:var(--jaune)}
-
-  /* ---------- INTRO : le hero se construit autour de son titre ----------
-     Pas d'écran séparé : le titre du hero EST l'intro (lignes révélées par
-     masque), puis le décor — nav, badge, ghost, sous-titre, CTA — se fond
-     en place autour de lui. Aucune rupture entre l'intro et le site. */
+  /* ---------- INTRO : le hero se construit autour de son titre ---------- */
   body.intro-lock{overflow:hidden}
-  /* état initial */
-  body.has-intro nav{transform:translateY(-110%)}
+  body.has-intro nav.top{transform:translateY(-110%)}
   body.has-intro .hero-ghost,
   body.has-intro .hero-badge,
   body.has-intro .hero-sub,
   body.has-intro .hero-ctas,
-  body.has-intro .spin-badge{opacity:0}
-  body.has-intro header h1 i{transform:translateY(112%)}
-  /* chorégraphie : titre d'abord, décor ensuite, tout en chevauchement */
-  body.has-intro header h1 .l1 i{animation:line-in 1.15s .30s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro header h1 .l2 i{animation:line-in 1.15s .46s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro header h1 .l3 i{animation:line-in 1.25s .62s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero-meta,
+  body.has-intro .hero-photo{opacity:0}
+  body.has-intro .hero h1 i{transform:translateY(112%)}
+  body.has-intro .hero h1 .l1 i{animation:line-in 1.15s .30s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero h1 .l2 i{animation:line-in 1.15s .46s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero h1 .l3 i{animation:line-in 1.25s .62s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero-photo{animation:photo-in 1.1s .95s cubic-bezier(.16,1,.3,1) forwards}
   body.has-intro .hero-ghost{animation:soft-in 1.6s 1.15s ease forwards}
-  body.has-intro .hero-badge{animation:badge-in .85s 1.3s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro nav{animation:nav-in .95s 1.4s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro .hero-sub{animation:soft-rise .95s 1.45s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro .hero-ctas{animation:soft-rise .95s 1.58s cubic-bezier(.16,1,.3,1) forwards}
-  body.has-intro .spin-badge{animation:spin 14s linear infinite, soft-in 1s 1.75s ease forwards}
+  body.has-intro .hero-badge{animation:badge-in .85s 1.25s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro nav.top{animation:nav-in .95s 1.4s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero-sub{animation:soft-rise .95s 1.4s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero-ctas{animation:soft-rise .95s 1.52s cubic-bezier(.16,1,.3,1) forwards}
+  body.has-intro .hero-meta{animation:soft-rise .95s 1.64s cubic-bezier(.16,1,.3,1) forwards}
   @keyframes line-in{to{transform:translateY(0)}}
   @keyframes soft-in{to{opacity:1}}
   @keyframes soft-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
   @keyframes badge-in{from{opacity:0;transform:rotate(-2deg) translateY(18px)}to{opacity:1;transform:rotate(-2deg) translateY(0)}}
   @keyframes nav-in{to{transform:translateY(0)}}
+  @keyframes photo-in{from{opacity:0;transform:rotate(12deg) translateY(60px)}to{opacity:1;transform:rotate(3deg) translateY(0)}}
 
-  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes pop{from{opacity:0;transform:scale(.7) rotate(-2deg)}to{opacity:1;transform:scale(1) rotate(-2deg)}}
-
-  /* ---------- MOBILE ---------- */
+  /* ---------- TABLETTE / MOBILE ---------- */
+  @media(max-width:900px){
+    section{padding:84px 22px}
+    .rituel{padding-top:120px}
+    .rituel-grid,.dip-grid,.menu-head,.avis-grid{grid-template-columns:1fr;gap:48px}
+    .dip-grid{text-align:left}
+    .menu-photo{justify-self:start;width:min(84%,340px)}
+    .menu-groupes{grid-template-columns:1fr}
+    .avis{padding-top:130px}
+    .infos-grid{grid-template-columns:1fr 1fr}
+    .foot{grid-template-columns:1fr;text-align:left}
+    .foot-legal{justify-content:flex-start}
+    .insta-grid{
+      display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;
+      margin:40px -22px 0;padding:10px 22px 30px;scrollbar-width:none;
+    }
+    .insta-grid::-webkit-scrollbar{display:none}
+    .insta-card{flex:0 0 min(64%,300px);scroll-snap-align:center}
+    .insta-card:nth-child(n){transform:rotate(0)}
+  }
   @media(max-width:560px){
-    nav{padding:10px 16px}
-    header{padding:110px 18px 48px}
-    .hero-badge{font-size:.68rem;padding:7px 13px;margin-bottom:26px}
-    .hero-sub{font-size:.98rem;margin:22px auto 32px}
-    .hero-ctas{width:100%;flex-direction:column;gap:12px}
-    .btn-jaune,.btn-ghost{width:100%;text-align:center;padding:16px 20px}
+    nav.top{padding:10px 16px}
+    .hero{padding:100px 18px 88px}
+    .hero-badge{font-size:.66rem;padding:7px 12px;margin-bottom:24px;letter-spacing:.08em}
+    .hero-sub{font-size:1rem;margin:22px 0 28px}
+    .hero-ctas{flex-direction:column;align-items:stretch;gap:8px}
+    .hero-ctas .lien-txt{justify-content:center}
+    .btn-jaune{width:100%;justify-content:center;padding:16px 20px}
+    .hero-meta{font-size:.82rem;margin-top:24px}
+    .hero-photo .sticker{left:-14px}
     .marquee span{font-size:.95rem;margin:0 18px}
-    section{padding:64px 18px}
-    .rituel-grid,.dip-grid{gap:40px}
-    .step{padding:16px 16px;gap:14px}
-    .step-num{min-width:44px;height:44px;font-size:1.3rem}
-    .dip{padding:64px 18px}
-    .dip-photo{width:min(320px,86%)}
-    .menu-groupes{gap:26px;margin-top:36px}
-    .menu-groupe{padding:24px 18px;transform:none!important}
-    .plat{flex-direction:column;gap:4px}
-    .plat-prix{font-size:1.1rem}
-    .avis-card{transform:none!important;padding:24px 20px}
-    .proof>div{width:100%;border:2px solid var(--noir)!important;border-bottom:none!important;padding:20px}
-    .proof>div:last-child{border-bottom:2px solid var(--noir)!important}
-    .infos-ghost{font-size:8rem;right:-30px;bottom:-40px}
+    section{padding:72px 18px}
+    .rituel{padding-top:104px}
+    .step{padding:18px 16px;gap:14px}
+    .step-num{min-width:46px;height:46px;font-size:1.35rem}
+    .dip-photo{width:min(330px,88%);justify-self:center}
+    .menu-groupe{padding:24px 18px 12px;transform:none!important}
+    .plat-prix{font-size:1.15rem}
     .badge-info{font-size:.7rem;padding:7px 11px}
+    .avis{padding-top:112px}
+    .tickets{grid-template-columns:1fr;gap:22px}
+    .ticket:nth-child(n){margin-top:0}
+    .score{padding:28px 24px}
+    .insta-grid{margin:32px -18px 0;padding:10px 18px 26px}
+    .infos-grid{grid-template-columns:1fr;gap:40px}
+    .infos-ghost{font-size:8rem;right:-30px;bottom:-40px}
   }
 
   @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
     *,*::before,*::after{animation:none!important;transition:none!important}
-    .reveal{transform:none}
-    body.has-intro nav{transform:none}
+    .reveal{translate:none}
+    .js [data-drip]::before{transform:none}
+    body.has-intro nav.top{transform:none}
     body.has-intro .hero-ghost,body.has-intro .hero-badge,body.has-intro .hero-sub,
-    body.has-intro .hero-ctas,body.has-intro .spin-badge{opacity:1}
-    body.has-intro header h1 i{transform:none}
+    body.has-intro .hero-ctas,body.has-intro .hero-meta,body.has-intro .hero-photo{opacity:1}
+    body.has-intro .hero h1 i{transform:none}
   }
 </style>
 <script type="application/ld+json">
@@ -491,8 +556,13 @@
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "La Baraka",
-  "description": "Smash burgers trempés au cheddar ou à la raclette fondue, quartier Pirmil à Nantes.",
-  "servesCuisine": "Burgers",
+  "description": "Smash burgers trempés en entier dans le cheddar maison ou la raclette fondue, quartier Pirmil à Nantes. Halal.",
+  "url": "https://la-baraka-jet.vercel.app/",
+  "image": "https://la-baraka-jet.vercel.app/img/og.jpg",
+  "servesCuisine": ["Burgers", "Fast-food", "Halal"],
+  "priceRange": "€",
+  "telephone": "+33768193423",
+  "hasMenu": "https://la-baraka-jet.vercel.app/#menu",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "16 rue Esnoul des Châtelets",
@@ -500,91 +570,28 @@
     "addressLocality": "Nantes",
     "addressCountry": "FR"
   },
-  "telephone": "+33699844955",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.1955156,
+    "longitude": -1.5433197
+  },
   "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday"
-      ],
-      "opens": "11:00",
-      "closes": "14:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday"
-      ],
-      "opens": "17:15",
-      "closes": "23:59"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Wednesday"
-      ],
-      "opens": "11:00",
-      "closes": "14:30"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Wednesday"
-      ],
-      "opens": "17:15",
-      "closes": "23:59"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Thursday"
-      ],
-      "opens": "11:00",
-      "closes": "14:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Thursday"
-      ],
-      "opens": "17:15",
-      "closes": "23:59"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Friday"
-      ],
-      "opens": "17:15",
-      "closes": "01:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Saturday"
-      ],
-      "opens": "11:00",
-      "closes": "01:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Sunday"
-      ],
-      "opens": "11:00",
-      "closes": "23:45"
-    }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday"], "opens": "11:30", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday"], "opens": "11:30", "closes": "14:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "17:30", "closes": "23:59" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "17:30", "closes": "01:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "11:30", "closes": "01:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "11:30", "closes": "23:59" }
   ],
   "sameAs": [
-    "https://www.instagram.com/labaraka_nantes/"
-  ],
-  "url": "https://la-baraka-jet.vercel.app/"
+    "https://www.instagram.com/labaraka_nantes/",
+    "https://www.facebook.com/p/La-Baraka-Nantes-61567181830294/"
+  ]
 }
 </script>
 </head>
 <body>
+<a class="skip" href="#contenu">Aller au contenu</a>
 
 <!-- Logo La Baraka — reproduction vectorielle du logo officiel -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -614,57 +621,81 @@
       </g>
       <text x="52" y="112" font-family="Archivo, sans-serif" font-weight="800" font-size="34" fill="#DA251C" letter-spacing="-0.5">BARAKA</text>
     </symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-scoot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-2-7h4l1 7M13 10l-1-4h-2"/></g></symbol>
   </defs>
 </svg>
 
-<nav>
-  <a class="nav-logo" href="#top">
-    <svg aria-label="Logo La Baraka"><use href="#logo-baraka"/></svg>
+<nav class="top" aria-label="Navigation principale">
+  <a class="nav-logo" href="#top" aria-label="La Baraka, retour en haut">
+    <svg aria-hidden="true"><use href="#logo-baraka"/></svg>
     <span class="word">La Baraka<small>Nantes · Pirmil</small></span>
   </a>
-  <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+  <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
     <span></span><span></span><span></span>
   </button>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#rituel">Le rituel</a>
     <a href="#menu">La carte</a>
     <a href="#avis">Avis</a>
-    <a href="#infos">Infos</a>
-    <a class="nav-cta" href="tel:+33699844955">Commander</a>
+    <a href="#infos">Horaires</a>
+    <a class="nav-cta" href="#commander">Commander</a>
   </div>
 </nav>
 
-<header id="top">
+<header id="top" class="hero">
   <div class="hero-ghost" aria-hidden="true">BARAKA</div>
-  <div class="hero-badge">★ N°1 des restos les mieux notés de Nantes</div>
-  <h1>
-    <span class="l1"><i>Le burger</i></span>
-    <span class="l2"><i>qu'on trempe</i></span>
-    <span class="l3"><i>dans le fromage</i></span>
-  </h1>
-  <p class="hero-sub">Smash burgers plongés en entier dans du cheddar maison ou de la raclette fondue. <mark>Gant fourni.</mark> Dignité non garantie.</p>
-  <div class="hero-ctas">
-    <a class="btn-jaune" href="tel:+33699844955">📞 Commander</a>
-    <a class="btn-ghost" href="#menu">Voir la carte</a>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-badge">★ N°1 des mieux notés de Nantes · Sunday 2025</p>
+      <h1>
+        <span class="l l1"><i>Le burger</i></span>
+        <span class="l l2"><i>qu'on trempe</i></span>
+        <span class="l l3"><i>dans le fromage</i></span>
+      </h1>
+      <p class="hero-sub">Smash burgers plongés en entier dans du cheddar maison ou de la raclette fondue. <mark>Gant fourni.</mark> Dignité non garantie.</p>
+      <div class="hero-ctas">
+        <a class="btn-jaune" href="#commander">Commander</a>
+        <a class="lien-txt lien-txt--creme" href="#menu">Voir la carte ↓</a>
+      </div>
+      <p class="hero-meta">
+        <span class="status" data-status>Ouvert 7j/7</span>
+        <span>16 rue Esnoul des Châtelets · Tram 2 &amp; 3, arrêt Pirmil</span>
+      </p>
+    </div>
+    <figure class="hero-photo">
+      <div class="polaroid">
+        <span class="tape" aria-hidden="true"></span>
+        <picture>
+          <source srcset="img/gant.webp" type="image/webp">
+          <img src="img/gant.jpg" width="640" height="800" alt="Une cliente croque un smash burger dégoulinant de cheddar, mains gantées de noir, devant le mur à damier rouge du restaurant" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption>Gants fournis.</figcaption>
+      </div>
+      <span class="sticker" aria-hidden="true">Trempé minute</span>
+      <svg class="spin-badge" viewBox="0 0 130 130" role="img" aria-label="Noté 4,8 sur 5 sur Google, plus de 5 700 avis">
+        <defs><path id="circ" d="M65,65 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+        <circle cx="65" cy="65" r="63" fill="#F5B301" stroke="#1A1310" stroke-width="2.5"/>
+        <g class="ring"><text font-family="Archivo,sans-serif" font-weight="800" font-size="11.6" letter-spacing="2.1" fill="#1A1310">
+          <textPath href="#circ">4,8★ SUR GOOGLE · 5 700+ AVIS · </textPath>
+        </text></g>
+        <text x="65" y="78" text-anchor="middle" font-family="Anton,sans-serif" font-size="34" fill="#DA251C" stroke="#1A1310" stroke-width="1">4,8</text>
+      </svg>
+    </figure>
   </div>
-  <svg class="spin-badge" viewBox="0 0 130 130" aria-hidden="true">
-    <defs><path id="circ" d="M65,65 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
-    <circle cx="65" cy="65" r="63" fill="var(--jaune)" stroke="#1A1310" stroke-width="2.5"/>
-    <text font-family="Archivo,sans-serif" font-weight="800" font-size="12.5" letter-spacing="2.5" fill="#1A1310">
-      <textPath href="#circ">4,9★ SUR GOOGLE · 5 000+ AVIS · 4,9★ SUR GOOGLE ·</textPath>
-    </text>
-    <text x="65" y="76" text-anchor="middle" font-size="30">🧀</text>
-  </svg>
 </header>
 
 <div class="checker-band" aria-hidden="true"></div>
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Smash Burger</span><span>·</span><span>Cheddar maison</span><span>·</span><span>Raclette coulante</span><span>·</span><span>Corn Dogs</span><span>·</span><span>100% Halal</span><span>·</span><span>Pirmil · Nantes</span><span>·</span>
-    <span>Smash Burger</span><span>·</span><span>Cheddar maison</span><span>·</span><span>Raclette coulante</span><span>·</span><span>Corn Dogs</span><span>·</span><span>100% Halal</span><span>·</span><span>Pirmil · Nantes</span><span>·</span>
+    <span>Smash burgers</span><span>·</span><span>Cheddar maison</span><span>·</span><span>Raclette coulante</span><span>·</span><span>Corn dogs</span><span>·</span><span>Halal</span><span>·</span><span>Ouvert 7j/7</span><span>·</span><span>Pirmil · Nantes</span><span>·</span>
+    <span>Smash burgers</span><span>·</span><span>Cheddar maison</span><span>·</span><span>Raclette coulante</span><span>·</span><span>Corn dogs</span><span>·</span><span>Halal</span><span>·</span><span>Ouvert 7j/7</span><span>·</span><span>Pirmil · Nantes</span><span>·</span>
   </div>
 </div>
 <div class="checker-band" aria-hidden="true"></div>
+<div class="drip drip--hero" data-drip aria-hidden="true"></div>
+
+<main id="contenu">
 
 <section class="rituel" id="rituel">
   <div class="wrap rituel-grid">
@@ -674,216 +705,211 @@
       <p>Chez La Baraka, le burger ne sort pas de la cuisine — il en <strong>ressort trempé</strong>. Chaque smash burger est plongé en entier dans une fondue de <strong>cheddar maison ou de raclette</strong>, devant vous.</p>
       <p>On vous tend un gant. Vous savez ce qu'il vous reste à faire.</p>
     </div>
-    <div class="steps reveal">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div><h3>On smashe</h3><p>Steak frais écrasé à la plancha, oignons caramélisés, pain brioché toasté.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
+    <ol class="steps reveal">
+      <li class="step">
+        <span class="step-num" aria-hidden="true">1</span>
+        <div><h3>On smashe</h3><p>Steak écrasé à la plancha, oignons caramélisés, pain brioché toasté.</p></div>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">2</span>
         <div><h3>On trempe</h3><p>Le burger entier plonge dans le fromage fondu. Cheddar ou raclette, à vous de choisir.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">3</span>
         <div><h3>On enfile le gant</h3><p>Gant à usage unique fourni. Aucune retenue exigée.</p></div>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- LE DIP — illustration signature -->
-<div class="dip">
+<section class="dip" aria-labelledby="dip-titre">
   <div class="dip-grid">
     <div class="reveal">
-      <h2>Le dip,<br><em>c'est sacré.</em></h2>
-      <p>Cheddar maison ou raclette coulante — le burger plonge en entier. C'est le geste qui a rendu La Baraka célèbre dans tout Nantes.</p>
+      <h2 id="dip-titre">Le dip,<br><em>c'est sacré.</em></h2>
+      <p>Le burger plonge en entier, et ressort en tirant des fils. C'est le geste qui a rendu La Baraka célèbre dans tout Nantes.</p>
+      <div class="dip-choix">
+        <span>Cheddar maison</span><b>ou</b><span>Raclette fondue</span>
+      </div>
     </div>
     <figure class="dip-photo reveal">
-      <span class="photo-sticker">Cheddar ou raclette</span>
-      <img src="https://uploads.lebonbon.fr/source/2025/july/2080138/la-baraka-ok_1_2000.jpg"
-           alt="Smash burger La Baraka trempé dans le cheddar fondu"
-           loading="lazy"
-           onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='https://tb-static.uber.com/prod/image-proc/processed_images/a5ada9bf3a7fd62d1d57909b69115706/dfe73df3a8123af1971eabf3eeff9ac1.jpeg'}else{this.closest('.dip-photo').style.display='none';document.querySelector('.burger-svg').style.display='block'}" decoding="async">
-      <figcaption>Le dip, en vrai. 🧀</figcaption>
+      <div class="polaroid">
+        <picture>
+          <source srcset="img/dip.webp" type="image/webp">
+          <img src="img/dip.jpg" width="416" height="520" alt="Fils de cheddar fondu qui coulent d'un burger soulevé au-dessus de la poêle, frites et corn dog en arrière-plan" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Le dip, en vrai.</figcaption>
+      </div>
+      <span class="sticker" aria-hidden="true">Cheddar ou raclette</span>
     </figure>
-    <svg class="burger-svg reveal" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smash burger dégoulinant de fromage">
-      <!-- pain haut -->
-      <path d="M50 118 C50 68 100 48 150 48 C200 48 250 68 250 118 L250 128 L50 128 Z" fill="#E89A3C" stroke="#1A1310" stroke-width="5"/>
-      <!-- graines de sésame -->
-      <g fill="#FFF3D6" stroke="#1A1310" stroke-width="2">
-        <ellipse cx="105" cy="82" rx="7" ry="4.5" transform="rotate(-18 105 82)"/>
-        <ellipse cx="150" cy="70" rx="7" ry="4.5" transform="rotate(8 150 70)"/>
-        <ellipse cx="196" cy="84" rx="7" ry="4.5" transform="rotate(20 196 84)"/>
-        <ellipse cx="127" cy="102" rx="7" ry="4.5" transform="rotate(12 127 102)"/>
-        <ellipse cx="174" cy="104" rx="7" ry="4.5" transform="rotate(-14 174 104)"/>
-      </g>
-      <!-- fromage qui dégouline -->
-      <path d="M42 128 L258 128 L258 140 C246 140 244 168 232 168 C220 168 222 140 208 140 C196 140 198 178 184 178 C170 178 174 140 158 140 C144 140 148 190 132 190 C116 190 122 140 106 140 C94 140 96 162 84 162 C72 162 76 140 62 140 C54 140 54 140 42 140 Z" fill="#F5B301" stroke="#1A1310" stroke-width="5" stroke-linejoin="round"/>
-      <!-- steak 1 -->
-      <rect x="55" y="150" width="190" height="26" rx="12" fill="#7B3F1D" stroke="#1A1310" stroke-width="5"/>
-      <!-- fromage 2 -->
-      <path d="M60 176 L240 176 L240 184 C230 184 232 200 222 200 C212 200 214 184 200 184 C188 184 190 206 178 206 C166 206 170 184 154 184 L60 184 Z" fill="#FFD34D" stroke="#1A1310" stroke-width="4" stroke-linejoin="round"/>
-      <!-- steak 2 -->
-      <rect x="60" y="184" width="180" height="24" rx="11" fill="#8A4A22" stroke="#1A1310" stroke-width="5"/>
-      <!-- pain bas -->
-      <path d="M58 212 L242 212 C250 212 254 220 254 228 C254 244 240 252 224 252 L76 252 C60 252 46 244 46 228 C46 220 50 212 58 212 Z" fill="#E89A3C" stroke="#1A1310" stroke-width="5"/>
-      <!-- gouttes -->
-      <ellipse cx="132" cy="204" rx="7" ry="10" fill="#F5B301" stroke="#1A1310" stroke-width="3.5"/>
-      <ellipse cx="184" cy="192" rx="6" ry="8" fill="#F5B301" stroke="#1A1310" stroke-width="3.5"/>
-      <!-- éclats -->
-      <g stroke="#FFF8EC" stroke-width="5" stroke-linecap="round">
-        <line x1="34" y1="60" x2="20" y2="44"/>
-        <line x1="266" y1="60" x2="280" y2="44"/>
-        <line x1="150" y1="30" x2="150" y2="12"/>
-      </g>
-    </svg>
   </div>
-</div>
+</section>
 
 <section class="menu" id="menu">
   <div class="wrap">
-    <span class="eyebrow" style="background:var(--noir);color:var(--jaune)">La carte</span>
-    <h2>Les vrais prix,<br>les vrais <em>burgers</em></h2>
+    <div class="menu-head">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--noir">La carte</span>
+        <h2>Les vrais prix,<br>les vrais <em>burgers</em></h2>
+        <p class="menu-intro">Tout est trempé à la commande. Les burgers existent aussi en menu, avec frites et boisson.</p>
+      </div>
+      <figure class="menu-photo reveal">
+        <div class="polaroid">
+          <span class="tape" aria-hidden="true"></span>
+          <picture>
+            <source srcset="img/table.webp" type="image/webp">
+            <img src="img/table.jpg" width="640" height="540" alt="Vue du dessus d'une table : frites curly, corn dog, burgers raclette dans leur poêle, papier à damier rouge" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>La table du samedi soir.</figcaption>
+        </div>
+      </figure>
+    </div>
+
     <div class="menu-groupes reveal">
       <div class="menu-groupe">
-        <h3>🍔 Burgers</h3>
+        <h3>Burgers <small>Trempés</small></h3>
         <div class="plat">
-          <div><div class="plat-nom">Cheeseburger</div><div class="plat-desc">Pain brioché, 1 steak smashé, cheddar, oignons caramélisés, mayo-ketchup.</div></div>
-          <div class="plat-prix">10 €</div>
+          <span class="plat-nom">Cheeseburger</span><span class="plat-lead"></span><span class="plat-prix">10 €</span>
+          <p class="plat-desc">Pain brioché, 1 steak smashé, cheddar, oignons caramélisés, mayo-ketchup.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Double Cheese</div><div class="plat-desc">2 steaks smashés, cheddar et oignons caramélisés sur chaque steak.</div></div>
-          <div class="plat-prix">11 €</div>
+          <span class="plat-nom">Double Cheese</span><span class="plat-lead"></span><span class="plat-prix">11 €</span>
+          <p class="plat-desc">2 steaks smashés, cheddar et oignons caramélisés sur chaque steak.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Triple Cheese <span class="pop">N°1</span></div><div class="plat-desc">3 steaks smashés, cheddar et oignons caramélisés sur chaque steak.</div></div>
-          <div class="plat-prix">12 €</div>
+          <span class="plat-nom">Triple Cheese<span class="pop">N°1</span></span><span class="plat-lead"></span><span class="plat-prix">12 €</span>
+          <p class="plat-desc">3 steaks smashés, cheddar et oignons caramélisés sur chaque steak.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Krunchy</div><div class="plat-desc">Poulet croustillant, cheddar maison, oignons caramélisés. Simple ou double.</div></div>
-          <div class="plat-prix">11 / 13 €</div>
+          <span class="plat-nom">Krunchy</span><span class="plat-lead"></span><span class="plat-prix">11 / 13 €</span>
+          <p class="plat-desc">Poulet croustillant, cheddar maison, oignons caramélisés. Simple ou double.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Brioche Fumé</div><div class="plat-desc">Pain brioché tressé, sauce fumée maison, 2 steaks, lardons fumés, raclette.</div></div>
-          <div class="plat-prix">13 €</div>
+          <span class="plat-nom">Brioche Fumé</span><span class="plat-lead"></span><span class="plat-prix">13 €</span>
+          <p class="plat-desc">Pain brioché tressé, sauce fumée maison, 2 steaks, lardons fumés, raclette.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Brioche Dynamite</div><div class="plat-desc">Sauce dynamite pimentée-sucrée, poulet krunchy, bacon, cheddar maison.</div></div>
-          <div class="plat-prix">13 €</div>
+          <span class="plat-nom">Brioche Dynamite</span><span class="plat-lead"></span><span class="plat-prix">13 €</span>
+          <p class="plat-desc">Sauce dynamite pimentée-sucrée, poulet krunchy, bacon, cheddar maison.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Chèvre Miel</div><div class="plat-desc">2 steaks smashés, chèvre, miel doux, sauce poivre citronné, piment d'Espelette.</div></div>
-          <div class="plat-prix">11,50 €</div>
+          <span class="plat-nom">Chèvre Miel</span><span class="plat-lead"></span><span class="plat-prix">11,50 €</span>
+          <p class="plat-desc">2 steaks smashés, chèvre, miel doux, sauce poivre citronné, piment d'Espelette.</p>
         </div>
       </div>
       <div class="menu-groupe">
-        <h3>🍟 Menus & Sides</h3>
+        <h3>Menus &amp; à-côtés <small>Avec les doigts</small></h3>
         <div class="plat">
-          <div><div class="plat-nom">Menu Triple Cheese <span class="pop">Best-seller</span></div><div class="plat-desc">Burger + frites + boisson.</div></div>
-          <div class="plat-prix">15 €</div>
+          <span class="plat-nom">Menu Triple Cheese<span class="pop">Best-seller</span></span><span class="plat-lead"></span><span class="plat-prix">15 €</span>
+          <p class="plat-desc">Burger + frites + boisson.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Menus Burgers</div><div class="plat-desc">Tous les burgers en version menu, frites + boisson.</div></div>
-          <div class="plat-prix">13 – 16 €</div>
+          <span class="plat-nom">Menus burgers</span><span class="plat-lead"></span><span class="plat-prix">13 – 16 €</span>
+          <p class="plat-desc">Tous les burgers en version menu, frites + boisson.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Corn Dog Mozza Saucisse</div><div class="plat-desc">Mozzarella et saucisse fumée, pâte feuilletée, panko croustillant. Classique ou spicy.</div></div>
-          <div class="plat-prix">8,50 €</div>
+          <span class="plat-nom">Corn Dog Mozza Saucisse</span><span class="plat-lead"></span><span class="plat-prix">8,50 €</span>
+          <p class="plat-desc">Mozzarella et saucisse fumée, pâte feuilletée, panko croustillant. Classique ou spicy.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Corn Dog Veggie</div><div class="plat-desc">Tout mozzarella, pâte feuilletée, panko. Classique ou spicy.</div></div>
-          <div class="plat-prix">8 €</div>
+          <span class="plat-nom">Corn Dog Veggie</span><span class="plat-lead"></span><span class="plat-prix">8 €</span>
+          <p class="plat-desc">Tout mozzarella, pâte feuilletée, panko. Classique ou spicy.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Frites Cheddar</div><div class="plat-desc">Frites maison nappées de cheddar fondu. + bacon en option.</div></div>
-          <div class="plat-prix">5,50 / 6,50 €</div>
+          <span class="plat-nom">Frites Cheddar</span><span class="plat-lead"></span><span class="plat-prix">5,50 / 6,50 €</span>
+          <p class="plat-desc">Frites nappées de cheddar fondu. Bacon en option.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Tiramisu maison</div><div class="plat-desc">Bueno ou caramel-spéculoos.</div></div>
-          <div class="plat-prix">4,90 €</div>
+          <span class="plat-nom">Tiramisu maison</span><span class="plat-lead"></span><span class="plat-prix">4,90 €</span>
+          <p class="plat-desc">Bueno ou caramel-spéculoos.</p>
         </div>
         <div class="plat">
-          <div><div class="plat-nom">Tarte Daim</div><div class="plat-desc">Le dessert qui fait 100% d'avis positifs.</div></div>
-          <div class="plat-prix">4 €</div>
+          <span class="plat-nom">Tarte Daim</span><span class="plat-lead"></span><span class="plat-prix">4 €</span>
+          <p class="plat-desc">Pour finir sur une note croquante.</p>
         </div>
       </div>
     </div>
+
     <div class="menu-foot">
-      <span class="badge-info">💳 Swile · Up · Bimpli</span>
-      <span class="badge-info">🌿 Options veggie</span>
-      <span class="badge-info">🕌 100% Halal</span>
-      <span class="badge-info">👥 Groupes 40 pers.</span>
-      <span class="badge-info">☀️ Terrasse</span>
+      <span class="badge-info">Halal</span>
+      <span class="badge-info">Options veggie</span>
+      <span class="badge-info">Terrasse</span>
+      <span class="badge-info">Groupes jusqu'à 40 pers.</span>
+      <span class="badge-info">Titres-restaurant</span>
     </div>
+    <p class="menu-legal">Prix TTC en euros, service compris. Carte et prix donnés à titre indicatif : seuls ceux affichés au restaurant font foi. Allergènes : l'information est disponible sur place, demandez au comptoir.</p>
   </div>
 </section>
+<div class="drip drip--b" data-drip aria-hidden="true"></div>
 
 <section class="avis" id="avis">
   <div class="wrap">
     <span class="eyebrow">Ils en parlent mieux que nous</span>
-    <h2>4,9 étoiles.<br>Ce n'est pas <em>un hasard.</em></h2>
-    <div class="avis-grid reveal">
-      <div class="avis-card">
-        <div class="stars">★★★★★</div>
-        <p>« Une superbe expérience. Beaucoup de goût, produit de qualité — manger son hamburger baignant dans le cheddar avec des gants, une première, et j'ai adoré. »</p>
-        <div class="who">— Hermann C. · Uber Eats</div>
+    <h2>4,8 étoiles.<br>Ce n'est pas <em>un hasard.</em></h2>
+    <div class="avis-grid">
+      <div class="reveal">
+        <div class="score">
+          <div class="score-num">4,8<span>/5</span></div>
+          <div class="stars" style="--note:96%" role="img" aria-label="4,8 étoiles sur 5">★★★★★</div>
+          <p class="score-lbl">Sur Google · 5 765 avis</p>
+          <p class="score-src">Relevé le 9 octobre 2026.</p>
+          <a class="lien" href="https://maps.google.com/?cid=14716503656059200202" target="_blank" rel="noopener">Lire les avis →</a>
+        </div>
+        <p class="sunday"><strong>N°1 à Nantes</strong>En tête du top 30 des restaurants les mieux notés sur Google à Nantes, publié par Sunday le 30 juin 2025.</p>
       </div>
-      <div class="avis-card">
-        <div class="stars">★★★★★</div>
-        <p>« Très bon et livraison rapide. »</p>
-        <div class="who">— Abidah R. · Uber Eats</div>
-      </div>
-      <div class="avis-card">
-        <div class="stars">★★★★★</div>
-        <p>« Des burgers délicieusement régressifs, généreusement trempés dans du fromage fondu. Une expérience à part entière. »</p>
-        <div class="who">— Le Bonbon Nantes</div>
+      <div class="tickets reveal">
+        <figure class="ticket">
+          <figcaption class="ticket-top"><span>Avis Google</span><span>2026</span></figcaption>
+          <blockquote>Le burger trempé dans le cheddar est une vraie tuerie.</blockquote>
+          <p class="who">— Nantsoa K.</p>
+        </figure>
+        <figure class="ticket ticket--presse">
+          <figcaption class="ticket-top"><span>Le Bonbon Nantes</span><span>Juil. 2025</span></figcaption>
+          <blockquote>Des burgers délicieusement régressifs, généreusement trempés dans du fromage fondu.</blockquote>
+          <p class="who">— Le Bonbon</p>
+        </figure>
+        <figure class="ticket">
+          <figcaption class="ticket-top"><span>Avis Google</span><span>2026</span></figcaption>
+          <blockquote>La sauce qui vient avec est un délice.</blockquote>
+          <p class="who">— Tsiky R.</p>
+        </figure>
+        <figure class="ticket">
+          <figcaption class="ticket-top"><span>Avis Google</span><span>2026</span></figcaption>
+          <blockquote>Drôle d'expérience de tremper les burgers dans du fromage…</blockquote>
+          <p class="who">— Simon S.</p>
+        </figure>
       </div>
     </div>
-    <div class="proof reveal">
-      <div><div class="big">4,9★</div><div class="lbl">Note Google</div></div>
-      <div><div class="big">5 000+</div><div class="lbl">Avis clients</div></div>
-      <div><div class="big">N°1</div><div class="lbl">Resto le mieux noté de Nantes*</div></div>
-    </div>
-    <p class="proof-note">*Classement Sunday des restaurants les mieux notés sur Google à Nantes, 2025.</p>
   </div>
 </section>
 
 <section class="insta" id="insta">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow" style="background:var(--noir);color:var(--jaune)">📸 @labaraka_nantes</span>
-      <h2>Suivez le <em>fromage</em></h2>
+    <div class="insta-head reveal">
+      <div>
+        <span class="eyebrow eyebrow--noir">@labaraka_nantes</span>
+        <h2>Suivez le <em>fromage</em></h2>
+      </div>
+      <a class="lien-txt" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+        Suivre @labaraka_nantes
+      </a>
     </div>
     <div class="insta-grid reveal">
       <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-0.jpg" alt="Burger plongé dans le cheddar fondu" loading="lazy" width="640" height="1138" decoding="async">
-        <span class="tag">Le dip cheddar 🧀</span>
+        <picture><source srcset="img/g-poele.webp" type="image/webp"><img src="img/g-poele.jpg" width="640" height="800" alt="Un client croque un burger raclette tiré de sa poêle, en terrasse" loading="lazy" decoding="async"></picture>
+        <span class="tag">La poêle de mamie</span>
       </a>
       <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-10.jpg" alt="Cliente qui croque un burger au fromage, gants fournis" loading="lazy" width="640" height="1136" decoding="async">
-        <span class="tag">Gants fournis 🧤</span>
+        <picture><source srcset="img/g-brioche.webp" type="image/webp"><img src="img/g-brioche.jpg" width="640" height="800" alt="Affiche « Une brioche de ouf » : le brioche burger La Baraka" loading="lazy" decoding="async"></picture>
+        <span class="tag">Le brioche burger</span>
       </a>
       <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-7.jpg" alt="Table remplie de burgers, corn dogs et frites curly" loading="lazy" width="640" height="1138" decoding="async">
-        <span class="tag">La table parfaite 🍟</span>
+        <picture><source srcset="img/g-plateaux.webp" type="image/webp"><img src="img/g-plateaux.jpg" width="640" height="800" alt="Un client attablé devant trois plateaux de burgers, frites et corn dogs" loading="lazy" decoding="async"></picture>
+        <span class="tag">Tout ça devant moi</span>
       </a>
       <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-4.jpg" alt="Burger raclette servi dans la poêle" loading="lazy" width="640" height="1136" decoding="async">
-        <span class="tag">La poêle de mamie 🍳</span>
-      </a>
-      <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-6.jpg" alt="Affiche du brioche burger La Baraka" loading="lazy" width="640" height="800" decoding="async">
-        <span class="tag">Le brioche burger 👑</span>
-      </a>
-      <a class="insta-card" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <img src="img/insta-8.jpg" alt="Client devant trois plateaux de burgers" loading="lazy" width="640" height="1136" decoding="async">
-        <span class="tag">Tout ça devant moi 😂</span>
-      </a>
-    </div>
-    <div class="insta-cta reveal">
-      <a class="btn-insta" href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/></svg>
-        Suivre @labaraka_nantes
+        <picture><source srcset="img/g-frites.webp" type="image/webp"><img src="img/g-frites.jpg" width="422" height="528" alt="Une main attrape des frites curly sur le papier à damier rouge" loading="lazy" decoding="async"></picture>
+        <span class="tag">Les curly</span>
       </a>
     </div>
   </div>
@@ -892,84 +918,141 @@
 <section class="infos" id="infos">
   <div class="infos-ghost" aria-hidden="true">PIRMIL</div>
   <div class="wrap">
-    <span class="eyebrow">Nous trouver</span>
-    <h2>Pirmil, <em>Nantes</em></h2>
+    <div class="infos-head">
+      <div>
+        <span class="eyebrow">Nous trouver</span>
+        <h2>Pirmil, <em>Nantes</em></h2>
+      </div>
+      <span class="status" data-status>Ouvert 7j/7</span>
+    </div>
     <div class="infos-grid">
       <div>
         <h3>Adresse</h3>
         <p>16 rue Esnoul des Châtelets<br>44200 Nantes</p>
-        <p style="margin-top:10px">Tram 2 & 3 — arrêt Pirmil</p>
-        <a class="btn-creme" href="https://www.google.com/maps/search/?api=1&query=La+Baraka+16+rue+Esnoul+des+Ch%C3%A2telets+Nantes" target="_blank" rel="noopener">Itinéraire</a>
+        <p class="sous">Tram 2 &amp; 3 — arrêt Pirmil. Terrasse aux beaux jours.</p>
+        <div class="infos-actions">
+          <a class="lien-txt lien-txt--jaune" href="https://www.google.com/maps/dir/?api=1&amp;destination=La+Baraka%2C+16+rue+Esnoul+des+Ch%C3%A2telets%2C+44200+Nantes" target="_blank" rel="noopener">Itinéraire →</a>
+        </div>
       </div>
       <div>
-        <h3>Horaires</h3>
-        <ul>
-          <li><span>Lun – Mar</span><span>11h–14h · 17h15–00h</span></li>
-          <li><span>Mercredi</span><span>11h–14h30 · 17h15–00h</span></li>
-          <li><span>Jeudi</span><span>11h–14h · 17h15–00h</span></li>
-          <li><span>Vendredi</span><span>17h15–01h</span></li>
-          <li><span>Samedi</span><span>11h–01h</span></li>
-          <li><span>Dimanche</span><span>11h–23h45</span></li>
+        <h3>Horaires · 7j/7</h3>
+        <ul class="hours" data-hours>
+          <li data-day="1"><span>Lundi</span><span>11h30–14h · 17h30–minuit</span></li>
+          <li data-day="2"><span>Mardi</span><span>11h30–14h · 17h30–minuit</span></li>
+          <li data-day="3"><span>Mercredi</span><span>11h30–14h30 · 17h30–minuit</span></li>
+          <li data-day="4"><span>Jeudi</span><span>11h30–14h · 17h30–minuit</span></li>
+          <li data-day="5"><span>Vendredi</span><span>17h30–1h</span></li>
+          <li data-day="6"><span>Samedi</span><span>11h30–1h</span></li>
+          <li data-day="0"><span>Dimanche</span><span>11h30–minuit</span></li>
         </ul>
+        <p class="sous">Horaires de la fiche Google de l'établissement, octobre 2026.</p>
       </div>
-      <div>
+      <div id="commander" class="commander">
         <h3>Commander</h3>
-        <p>📞 <a href="tel:+33699844955">06 99 84 49 55</a></p>
-        <p style="margin-top:10px">📸 <a href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">@labaraka_nantes</a></p>
-        <p style="margin-top:10px">🛵 <a href="https://www.ubereats.com/fr/store/la-baraka/U3Pd0tUXUMuY4tzYeyIbBw" target="_blank" rel="noopener">Livraison Uber Eats</a></p>
-        <a class="btn-creme" href="tel:+33699844955">Commander</a>
+        <p class="sous">Sur place, à emporter : un coup de fil suffit.</p>
+        <a class="btn-rouge" href="tel:+33768193423"><svg width="18" height="18" aria-hidden="true"><use href="#i-tel"/></svg>Commander · 07 68 19 34 23</a>
+        <p class="sous">En livraison, chez vous :</p>
+        <a class="lien-txt lien-txt--jaune" href="https://www.ubereats.com/fr/store/la-baraka/U3Pd0tUXUMuY4tzYeyIbBw" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-scoot"/></svg>Commander sur Uber Eats →</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <div class="checker-band" aria-hidden="true"></div>
 <footer>
-  <div class="foot-logo">La Baraka</div>
-  <p>© 2026 La Baraka · SAS · 16 rue Esnoul des Châtelets, Nantes — Site de démonstration</p>
-  <p class="foot-legal">
-    <a href="/mentions-legales">Mentions légales</a>
-    <span class="sep">·</span>
-    <a href="/politique-confidentialite">Confidentialité</a>
-    <span class="sep">·</span>
-    <a href="/politique-confidentialite#cookies">Cookies</a>
-  </p>
-  <p class="foot-sign">Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></p>
+  <div class="foot">
+    <a class="foot-brand" href="#top" aria-label="La Baraka, retour en haut">
+      <svg aria-hidden="true"><use href="#logo-baraka"/></svg>
+      <span>La Baraka</span>
+    </a>
+    <p class="foot-id">16 rue Esnoul des Châtelets, 44200 Nantes · <a href="tel:+33768193423">07 68 19 34 23</a><br>Exploité par BARAKA SAS · Halal · Ouvert 7j/7</p>
+    <nav class="foot-legal" aria-label="Informations légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-confidentialite">Confidentialité</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/mentions-legales#cgu">Conditions d'utilisation</a>
+    </nav>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 La Baraka · Ce site ne dépose aucun cookie.</span>
+    <span>Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></span>
+  </div>
 </footer>
 
 <script>
+  // ---- RÉVÉLATIONS ----
   const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);} });
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add(e.target.hasAttribute('data-drip')?'grow':'on'); io.unobserve(e.target);} });
   },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.reveal,[data-drip]').forEach(el=>io.observe(el));
 
-  // ---- MENU BURGER MOBILE ----
+  // ---- MENU MOBILE ----
   const burger = document.querySelector('.nav-burger');
-  if(burger){
-    burger.addEventListener('click',()=>{
-      const open = document.body.classList.toggle('menu-open');
-      burger.setAttribute('aria-expanded', open);
-    });
-    document.querySelectorAll('.nav-links a').forEach(a=>{
-      a.addEventListener('click',()=>{
-        document.body.classList.remove('menu-open');
-        burger.setAttribute('aria-expanded','false');
-      });
-    });
-  }
+  const closeMenu = ()=>{ document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); burger.setAttribute('aria-label','Ouvrir le menu'); };
+  burger.addEventListener('click',()=>{
+    const open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',closeMenu));
+  addEventListener('keydown',e=>{ if(e.key==='Escape' && document.body.classList.contains('menu-open')){ closeMenu(); burger.focus(); } });
+
+  // ---- OUVERT / FERMÉ (heure de Nantes) ----
+  // minutes depuis minuit ; une fermeture > 1440 déborde sur le lendemain
+  (function(){
+    const H = {
+      0:[[690,1440]],
+      1:[[690,840],[1050,1440]],
+      2:[[690,840],[1050,1440]],
+      3:[[690,870],[1050,1440]],
+      4:[[690,840],[1050,1440]],
+      5:[[1050,1500]],
+      6:[[690,1500]]
+    };
+    const JOURS=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+    let day, min;
+    try{
+      const p = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+      const g = t=>p.find(x=>x.type===t).value;
+      day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
+      min = (+g('hour'))*60 + (+g('minute'));
+    }catch(e){ return; }
+    if(day<0) return;
+    const fmt = m=>{ m%=1440; if(m===0) return 'minuit'; const h=Math.floor(m/60), mm=m%60; return h+'h'+(mm?String(mm).padStart(2,'0'):''); };
+    let open=null;
+    H[day].forEach(([o,c])=>{ if(min>=o && min<c) open=c; });
+    const prev=(day+6)%7;
+    H[prev].forEach(([o,c])=>{ if(c>1440 && min<c-1440) open=c; });
+    let txt, cls;
+    if(open!==null){
+      txt='Ouvert · jusqu’à '+fmt(open); cls='is-open';
+    }else{
+      cls='is-closed';
+      const next=H[day].find(([o])=>o>min);
+      if(next) txt='Fermé · ouvre à '+fmt(next[0]);
+      else{
+        for(let i=1;i<=7;i++){
+          const d=(day+i)%7;
+          if(H[d].length){ txt='Fermé · ouvre '+(i===1?'demain':JOURS[d])+' à '+fmt(H[d][0][0]); break; }
+        }
+      }
+    }
+    document.querySelectorAll('[data-status]').forEach(el=>{ el.textContent=txt; el.classList.add(cls); });
+    // la journée de service qui court encore après minuit reste « aujourd'hui »
+    const serviceDay = (open!==null && min<360 && H[prev].some(([o,c])=>c>1440 && min<c-1440)) ? prev : day;
+    const li=document.querySelector('[data-hours] li[data-day="'+serviceDay+'"]');
+    if(li) li.classList.add('today');
+  })();
 
   // ---- INTRO : construction du hero (à chaque chargement) ----
   (function(){
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced) return; // hero affiché tel quel, aucune animation d'entrée
-    // repartir du haut à chaque refresh pour que l'intro soit toujours visible
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     try{ history.scrollRestoration = 'manual'; }catch(e){}
     window.scrollTo(0,0);
     document.body.classList.add('has-intro','intro-lock');
-    // titre : 0.3 → 0.62s (lignes masquées) · décor : 1.15 → 1.75s
-    setTimeout(()=>{
-      document.body.classList.remove('intro-lock');
-    }, 2600);
+    setTimeout(()=>document.body.classList.remove('intro-lock'), 2400);
   })();
 </script>
 </body>

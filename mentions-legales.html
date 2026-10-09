@@ -5,170 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mentions légales — La Baraka · Nantes</title>
 <link rel="canonical" href="https://la-baraka-jet.vercel.app/mentions-legales">
-<meta name="description" content="Mentions légales du site La Baraka, smash burgers trempés au fromage à Nantes Pirmil.">
+<meta name="description" content="Mentions légales du site de La Baraka, smash burgers trempés au fromage à Nantes Pirmil : éditeur, hébergeur, propriété intellectuelle.">
 <meta name="robots" content="noindex,follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white' stroke='%231A1310' stroke-width='2'/%3E%3Crect x='20' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='44' y='10' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='68' y='14' width='12' height='12' fill='%23DA251C'/%3E%3Ctext x='50' y='63' font-family='Arial Black,sans-serif' font-weight='900' font-size='34' fill='%23DA251C' text-anchor='middle'%3EB%3C/text%3E%3Crect x='32' y='74' width='12' height='12' fill='%23DA251C'/%3E%3Crect x='56' y='74' width='12' height='12' fill='%23DA251C'/%3E%3C/svg%3E">
-<link rel="preload" href="assets/font/archivo-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/font/anton-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/font/fonts.css">
-<style>
-  :root{
-    --rouge:#DA251C;--rouge-fonce:#A81810;--jaune:#F5B301;--jaune-clair:#FFD34D;
-    --creme:#FFF8EC;--noir:#1A1310;--blanc:#FFFFFF;--brun:#7B3F1D;--pain:#E89A3C;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Archivo',sans-serif;background:var(--creme);color:var(--noir);line-height:1.7;-webkit-font-smoothing:antialiased}
-  h1,h2{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.05;text-transform:uppercase}
-  ::selection{background:var(--jaune);color:var(--noir)}
-  a{color:var(--rouge);text-decoration:none}
-  a:hover{text-decoration:underline}
-  :focus-visible{outline:3px solid var(--noir);outline-offset:3px}
-
-  /* NAV */
-  .legal-nav{
-    position:sticky;top:0;z-index:50;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:14px 28px;background:rgba(255,248,236,.94);backdrop-filter:blur(12px);
-    border-bottom:2px solid var(--noir);
-  }
-  .legal-nav .brand{font-family:'Anton',sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--rouge);letter-spacing:.02em;text-decoration:none}
-  .legal-nav .back{
-    font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;
-    color:var(--noir);border:2px solid var(--noir);padding:9px 16px;
-    box-shadow:3px 3px 0 var(--noir);background:var(--creme);
-    transition:transform .15s,box-shadow .15s;
-  }
-  .legal-nav .back:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--noir);text-decoration:none}
-
-  /* HERO BAND */
-  .legal-head{
-    background:var(--rouge);color:var(--creme);
-    border-bottom:2px solid var(--noir);
-    padding:72px 24px 60px;position:relative;overflow:hidden;
-  }
-  .legal-head::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:radial-gradient(rgba(26,19,16,.2) 1.3px,transparent 1.3px);
-    background-size:22px 22px;
-    -webkit-mask-image:radial-gradient(ellipse at 50% 130%,transparent 45%,black 100%);
-    mask-image:radial-gradient(ellipse at 50% 130%,transparent 45%,black 100%);
-  }
-  .legal-head .wrap{max-width:820px;margin:0 auto;position:relative}
-  .legal-head .eyebrow{
-    display:inline-block;background:var(--jaune);color:var(--noir);
-    font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;
-    padding:6px 14px;margin-bottom:20px;border:2px solid var(--noir);box-shadow:3px 3px 0 var(--noir);
-    transform:rotate(-1.5deg);
-  }
-  .legal-head h1{font-size:clamp(2.6rem,7vw,4.2rem);text-shadow:4px 4px 0 var(--noir)}
-  .legal-head .lede{margin-top:18px;max-width:56ch;font-weight:500}
-  .legal-head .updated{margin-top:16px;font-weight:600;font-size:.9rem;color:var(--creme);opacity:.9}
-
-  /* CONTENT */
-  main{max-width:820px;margin:0 auto;padding:64px 24px 40px}
-  .legal-note{
-    background:var(--jaune-clair);border:2px solid var(--noir);box-shadow:4px 4px 0 var(--noir);
-    padding:16px 20px;font-size:.9rem;font-weight:600;margin-bottom:48px;
-  }
-  section.block{margin-bottom:44px}
-  section.block h2{
-    font-size:1.5rem;color:var(--rouge);margin-bottom:14px;
-    padding-bottom:10px;border-bottom:2px solid var(--noir);
-  }
-  section.block h3{
-    font-family:'Archivo',sans-serif;font-size:1rem;font-weight:800;
-    text-transform:uppercase;letter-spacing:.05em;margin:26px 0 8px;color:var(--brun);
-  }
-  section.block p{margin-bottom:12px;max-width:66ch}
-  section.block p:last-child{margin-bottom:0}
-  section.block ul{margin:0 0 12px;padding-left:0;max-width:66ch;list-style:none}
-  section.block li{margin-bottom:8px;padding-left:22px;position:relative}
-  section.block li::before{content:"▪";position:absolute;left:0;color:var(--rouge);font-size:.9em}
-  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:rgba(26,19,16,.07);padding:1px 5px;border-radius:3px}
-
-  /* Fiche d'identité — lignes de ticket de caisse, comme les prix de la carte */
-  .legal-id{margin:18px 0 8px;padding:0;list-style:none;max-width:none}
-  .legal-id li{
-    display:flex;align-items:baseline;gap:8px;
-    padding:8px 0;margin:0;border-bottom:1px dashed rgba(26,19,16,.22);
-  }
-  .legal-id li::before{content:none}
-  .legal-id .k{color:var(--brun);font-weight:600;white-space:nowrap}
-  .legal-id .lead{
-    flex:1;min-width:16px;align-self:center;height:2px;
-    background-image:radial-gradient(circle,rgba(26,19,16,.4) 1px,transparent 1px);
-    background-size:5px 2px;background-repeat:repeat-x;background-position:0 center;
-  }
-  .legal-id .v{font-weight:700;text-align:right}
-
-  /* Trou assumé : ce qui n'a pas pu être vérifié se voit. */
-  .manque{
-    background:#FFD9E2;color:#7A0B26;
-    padding:1px 7px;border-radius:2px;font-weight:600;font-size:.94em;
-    box-decoration-break:clone;-webkit-box-decoration-break:clone;
-  }
-
-  /* Encadré source — le site dit d'où il tient ce qu'il affirme */
-  .legal-source{
-    background:var(--blanc);border:2px solid var(--noir);border-left:6px solid var(--jaune);
-    box-shadow:4px 4px 0 rgba(26,19,16,.18);
-    padding:16px 20px;margin:20px 0;font-size:.9rem;max-width:66ch;
-  }
-  .legal-source strong{color:var(--rouge)}
-
-  /* Séparateur — la bande damier du site, en petit */
-  .legal-sep{
-    height:14px;margin:52px 0;border:2px solid var(--noir);
-    background-image:
-      linear-gradient(45deg,var(--noir) 25%,transparent 25%,transparent 75%,var(--noir) 75%),
-      linear-gradient(45deg,var(--noir) 25%,transparent 25%,transparent 75%,var(--noir) 75%);
-    background-size:14px 14px;background-position:0 0,7px 7px;background-color:var(--creme);
-  }
-
-  .legal-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:52px;padding-top:28px;border-top:2px solid var(--noir)}
-  .legal-actions a{
-    font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;
-    border:2px solid var(--noir);padding:11px 18px;box-shadow:4px 4px 0 var(--noir);
-    transition:transform .15s,box-shadow .15s;
-  }
-  .legal-actions .a-rouge{background:var(--rouge);color:var(--creme)}
-  .legal-actions .a-creme{background:var(--creme);color:var(--noir)}
-  .legal-actions a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--noir);text-decoration:none}
-
-  /* FOOTER */
-  footer{
-    background:var(--noir);color:#8f8377;text-align:center;
-    padding:30px 24px;font-size:.8rem;border-top:1px solid rgba(255,248,236,.12);
-  }
-  footer .foot-logo{font-family:'Anton',sans-serif;color:var(--creme);font-size:1.15rem;text-transform:uppercase;margin-bottom:6px;letter-spacing:.04em}
-  footer .foot-legal{margin-top:10px}
-  footer .foot-legal a{color:#b8ab9d;text-decoration:none;transition:color .2s}
-  footer .foot-legal a:hover{color:var(--jaune)}
-  footer .foot-legal .sep{color:#5c534b;margin:0 8px}
-  footer .foot-sign{margin-top:8px}
-  footer .foot-sign a{color:var(--creme);font-weight:700;text-decoration:none}
-  footer .foot-sign a:hover{color:var(--jaune)}
-
-  @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{transition:none!important;animation:none!important}
-  }
-  @media(max-width:560px){
-    .legal-nav{padding:12px 16px}
-    .legal-head{padding:52px 18px 44px}
-    main{padding:44px 18px 32px}
-    section.block{margin-bottom:36px}
-    .legal-id li{flex-wrap:wrap;gap:2px}
-    .legal-id .lead{display:none}
-    .legal-id .v{text-align:left;width:100%}
-  }
-</style>
+<meta name="theme-color" content="#DA251C">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/font/anton-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/font/fonts.css">
+<link rel="stylesheet" href="/assets/legal.css">
+<script src="/assets/stats.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#contenu">Aller au contenu</a>
 
-<nav class="legal-nav">
-  <a class="brand" href="/">La Baraka</a>
+<nav class="legal-nav" aria-label="Navigation">
+  <a class="brand" href="/"><img src="/favicon.svg" alt="" width="38" height="38"><span>La Baraka</span></a>
   <a class="back" href="/">← Retour au site</a>
 </nav>
 
@@ -176,181 +28,135 @@
   <div class="wrap">
     <span class="eyebrow">Le ticket de caisse</span>
     <h1>Mentions légales</h1>
-    <p class="lede">Qui édite ce site, qui l'héberge, à qui appartiennent les textes et les photos. C'est l'article 6 de la loi pour la confiance dans l'économie numérique qui l'exige.</p>
-    <p class="updated">Dernière mise à jour : 17 juillet 2026</p>
+    <p class="lede">Qui édite ce site, qui l'héberge, à qui appartiennent les textes et les photos — conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+    <p class="updated">Mise à jour : 9 octobre 2026</p>
   </div>
 </header>
 
-<main>
+<main id="contenu">
+  <nav class="toc" aria-label="Sommaire">
+    <p>Sommaire</p>
+    <ol>
+      <li><a href="#editeur">1. Éditeur du site</a></li>
+      <li><a href="#publication">2. Directeur de la publication</a></li>
+      <li><a href="#hebergement">3. Hébergement</a></li>
+      <li><a href="#realisation">4. Conception et réalisation</a></li>
+      <li><a href="#propriete">5. Propriété intellectuelle</a></li>
+      <li><a href="#carte">6. Carte, prix et allergènes</a></li>
+      <li><a href="#responsabilite">7. Responsabilité et liens</a></li>
+      <li><a href="#cgu">8. Conditions d'utilisation</a></li>
+      <li><a href="#donnees">9. Données personnelles et cookies</a></li>
+      <li><a href="#droit">10. Droit applicable</a></li>
+    </ol>
+  </nav>
 
-  <div class="legal-note">
-    Les informations marquées <span class="manque">[à fournir]</span> n'ont pas pu être vérifiées à une source officielle et doivent être complétées par l'éditeur avant la mise en ligne. Elles apparaissent en surbrillance exprès : un trou doit se voir, pas se combler avec une supposition. <strong>Aucune donnée n'a été inventée.</strong>
-  </div>
-
-  <section class="block">
-    <h2>Éditeur du site</h2>
+  <section class="block" id="editeur">
+    <h2>1. Éditeur du site</h2>
+    <p>Le site <strong>la-baraka-jet.vercel.app</strong> est édité par la société qui exploite le restaurant La Baraka :</p>
     <ul class="legal-id">
+      <li><span class="k">Nom commercial</span><span class="lead"></span><span class="v">La Baraka</span></li>
       <li><span class="k">Dénomination sociale</span><span class="lead"></span><span class="v">BARAKA</span></li>
       <li><span class="k">Forme juridique</span><span class="lead"></span><span class="v">Société par actions simplifiée (SAS)</span></li>
-      <li><span class="k">Siège social</span><span class="lead"></span><span class="v">16 rue Esnoul des Châtelets, 44200 Nantes, France</span></li>
-      <li><span class="k">SIREN</span><span class="lead"></span><span class="v">931 996 607</span></li>
-      <li><span class="k">SIRET (siège)</span><span class="lead"></span><span class="v">931 996 607 00012</span></li>
-      <li><span class="k">TVA intracommunautaire</span><span class="lead"></span><span class="v">FR44931996607</span></li>
+      <li><span class="k">Capital social</span><span class="lead"></span><span class="v">10 €</span></li>
+      <li><span class="k">Siège social</span><span class="lead"></span><span class="v">16 rue Esnoul des Châtelets, 44200 Nantes</span></li>
+      <li><span class="k">RCS</span><span class="lead"></span><span class="v">Nantes 931 996 607</span></li>
+      <li><span class="k">SIRET</span><span class="lead"></span><span class="v">931 996 607 00012</span></li>
+      <li><span class="k">TVA intracommunautaire</span><span class="lead"></span><span class="v">FR44 931 996 607</span></li>
       <li><span class="k">Code APE</span><span class="lead"></span><span class="v">56.10C — Restauration de type rapide</span></li>
-      <li><span class="k">Immatriculation</span><span class="lead"></span><span class="v">12 août 2024</span></li>
-      <li><span class="k">Présidents</span><span class="lead"></span><span class="v">Nur Ahmed · Rabi Salim Nebti</span></li>
-      <li><span class="k">Téléphone</span><span class="lead"></span><span class="v"><a href="tel:+33699844955">06 99 84 49 55</a></span></li>
-      <li><span class="k">Enseigne « La Baraka »</span><span class="lead"></span><span class="v"><span class="manque">[à confirmer — aucune enseigne déclarée au registre]</span></span></li>
-      <li><span class="k">Capital social</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
-      <li><span class="k">RCS</span><span class="lead"></span><span class="v"><span class="manque">[à confirmer — RCS Nantes 931 996 607]</span></span></li>
-      <li><span class="k">E-mail</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
+      <li><span class="k">Téléphone</span><span class="lead"></span><span class="v"><a href="tel:+33768193423">07 68 19 34 23</a></span></li>
+      <li><span class="k">E-mail</span><span class="lead"></span><span class="v"><span class="manque">[adresse à communiquer]</span></span></li>
     </ul>
-
-    <div class="legal-source">
-      <strong>D'où viennent ces données.</strong> Relevées le 17 juillet 2026 au registre national des entreprises, via l'API publique <a href="https://recherche-entreprises.api.gouv.fr" target="_blank" rel="noopener noreferrer">recherche-entreprises.api.gouv.fr</a>. Le capital social ne figure pas dans ce registre et doit être fourni par l'éditeur : il est obligatoire dans les mentions légales d'une société commerciale. La société <strong>BARAKA</strong> a son siège à l'adresse même du restaurant et son code d'activité est bien celui de la restauration rapide, mais <strong>aucune enseigne n'est déclarée au registre</strong> : le rattachement du nom commercial « La Baraka » à cette société repose sur la concordance du nom et de l'adresse, et doit être confirmé par l'éditeur.
-    </div>
   </section>
 
-  <section class="block">
-    <h2>Directeur de la publication</h2>
-    <p><span class="manque">[à fournir]</span></p>
-    <p>
-      Pour une SAS, le directeur de la publication est le président, sauf désignation d'une autre personne. La société ayant <strong>deux présidents</strong>, Nur Ahmed et Rabi Salim Nebti, celui des deux qui assume cette fonction doit être désigné nommément.
-    </p>
+  <section class="block" id="publication">
+    <h2>2. Directeur de la publication</h2>
+    <p>Nur Ahmed, président de la société BARAKA.</p>
   </section>
 
-  <section class="block">
-    <h2>Hébergement</h2>
+  <section class="block" id="hebergement">
+    <h2>3. Hébergement</h2>
     <ul class="legal-id">
-      <li><span class="k">Hébergeur</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
-      <li><span class="k">Adresse</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
-      <li><span class="k">Téléphone</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
-      <li><span class="k">Site</span><span class="lead"></span><span class="v"><span class="manque">[à fournir]</span></span></li>
+      <li><span class="k">Hébergeur</span><span class="lead"></span><span class="v">Vercel Inc.</span></li>
+      <li><span class="k">Adresse</span><span class="lead"></span><span class="v">440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis</span></li>
+      <li><span class="k">Téléphone</span><span class="lead"></span><span class="v">+1 951 383 6898</span></li>
+      <li><span class="k">Site</span><span class="lead"></span><span class="v"><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></span></li>
     </ul>
-    <p>
-      L'article 6 III-1 de la loi n° 2004-575 du 21 juin 2004 impose de mentionner le nom, la dénomination, l'adresse et le téléphone de l'hébergeur. Ce bloc doit être renseigné avant la mise en ligne, une fois l'hébergeur définitif arrêté.
-    </p>
+    <p>Les pages sont servies par le réseau de distribution de Vercel, depuis le point de présence le plus proche du visiteur (Paris pour la France).</p>
   </section>
 
-  <section class="block">
-    <h2>Conception et réalisation</h2>
-    <p>
-      Conception éditoriale, direction artistique et développement :
-      <a href="https://vokumagency.com" target="_blank" rel="noopener noreferrer">Vokum</a>.
-    </p>
+  <section class="block" id="realisation">
+    <h2>4. Conception et réalisation</h2>
+    <p>Direction artistique, conception éditoriale et développement : <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a>.</p>
   </section>
 
-  <div class="legal-sep" aria-hidden="true"></div>
-
-  <section class="block">
-    <h2>Propriété intellectuelle</h2>
-    <p>
-      La structure du site, les textes, la charte graphique et les développements sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou représentation, totale ou partielle, sans autorisation écrite préalable de l'éditeur est interdite.
-    </p>
-    <p>
-      Le nom commercial « La Baraka » et le logo au damier sont la propriété de leur titulaire.
-    </p>
-
+  <section class="block" id="propriete">
+    <h2>5. Propriété intellectuelle</h2>
+    <p>L'ensemble du site — structure, textes, charte graphique, logo au damier, illustrations et développements — est protégé par le droit de la propriété intellectuelle. Toute reproduction, représentation ou adaptation, totale ou partielle, sans l'autorisation écrite préalable de l'éditeur est interdite (articles L. 122-4 et L. 335-2 du code de la propriété intellectuelle).</p>
+    <p>Le nom commercial « La Baraka » et son logo appartiennent à leur titulaire.</p>
     <h3>Photographies</h3>
-    <p>
-      Les photographies de la galerie proviennent du compte Instagram <a href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener noreferrer">@labaraka_nantes</a> et restent la propriété de leurs auteurs respectifs. <span class="manque">[autorisation d'exploitation à confirmer]</span> — le crédit est repris du site existant ; l'accord des auteurs et l'étendue exacte des droits cédés (support, durée, territoire) doivent être confirmés par l'éditeur. Les personnes reconnaissables sur les images doivent avoir donné leur autorisation au titre du droit à l'image.
-    </p>
-    <p>
-      La photographie du dip affichée en page d'accueil est <strong>chargée directement depuis le serveur d'un média tiers</strong> (<code>uploads.lebonbon.fr</code>), avec un second serveur tiers en secours (<code>tb-static.uber.com</code>). <span class="manque">[licence à obtenir — photo de presse non licenciée]</span> — cette image doit être remplacée par une photographie dont la maison détient les droits, hébergée sur le serveur du site. Voir aussi la <a href="/politique-confidentialite">politique de confidentialité</a> : cet appel expose l'adresse IP du visiteur à ces tiers.
-    </p>
-
+    <p>Les photographies proviennent du compte Instagram de l'établissement, <a href="https://www.instagram.com/labaraka_nantes/" target="_blank" rel="noopener">@labaraka_nantes</a>, et restent la propriété de leurs auteurs respectifs. Toute personne reconnaissable sur une image qui souhaite son retrait peut le demander à l'éditeur : il y sera donné suite sans délai.</p>
     <h3>Polices de caractères</h3>
-    <p>
-      Le site utilise les familles Anton et Archivo, distribuées sous licence SIL Open Font License 1.1 et hébergées sur le serveur du site.
-    </p>
-
+    <p>Anton et Archivo, distribuées sous licence SIL Open Font License 1.1 et hébergées sur le serveur du site.</p>
     <h3>Marques citées</h3>
-    <p>
-      Uber Eats, Instagram, Google Maps, Swile, Up et Bimpli sont des marques appartenant à leurs titulaires respectifs. Elles sont mentionnées à titre d'information, sur les services acceptés ou les liens proposés, sans lien de partenariat implicite.
-    </p>
+    <p>Uber Eats, Instagram, Google Maps et Vercel sont des marques de leurs titulaires respectifs, citées à titre informatif, sans partenariat.</p>
   </section>
 
-  <div class="legal-sep" aria-hidden="true"></div>
-
-  <section class="block">
-    <h2>Ce que fait ce site, et ce qu'il ne fait pas</h2>
-    <p>
-      Ce site est un site vitrine. Il présente le restaurant, sa carte, ses horaires et ses informations pratiques.
-    </p>
-    <ul>
-      <li>il ne vend aucun produit ni service en ligne ;</li>
-      <li>il n'encaisse aucun paiement et ne reçoit aucune donnée bancaire ;</li>
-      <li>il ne comporte aucun formulaire, aucun compte utilisateur, aucune newsletter ;</li>
-      <li>il n'utilise aucun outil de mesure d'audience ;</li>
-      <li>il ne dépose aucun cookie.</li>
-    </ul>
-    <p>
-      <strong>Les commandes ne se font pas sur ce site.</strong> Le bouton « Commander » ouvre simplement le téléphone, et le lien « Livraison Uber Eats » est un lien sortant vers <a href="https://www.ubereats.com/fr/store/la-baraka/U3Pd0tUXUMuY4tzYeyIbBw" target="_blank" rel="noopener noreferrer">Uber Eats</a>, un service tiers qui a son propre site, ses propres conditions et sa propre politique de confidentialité. Aucun module Uber Eats n'est intégré dans ces pages : rien n'est chargé depuis Uber Eats tant que vous ne cliquez pas.
-    </p>
-    <p>
-      Aucun contrat n'étant conclu par l'intermédiaire de ce site, il n'y a pas lieu d'y établir de conditions générales de vente ni d'utilisation. Les prestations vendues sur place ou en livraison relèvent, selon le cas, des conditions du restaurant ou de celles d'Uber Eats.
-    </p>
+  <section class="block" id="carte">
+    <h2>6. Carte, prix et allergènes</h2>
+    <p>La carte, les prix et les horaires publiés sur ce site sont donnés à titre indicatif et peuvent évoluer ; seuls ceux affichés dans l'établissement font foi. Les prix s'entendent TTC, service compris.</p>
+    <p>L'information sur les quatorze allergènes à déclaration obligatoire (règlement UE n° 1169/2011) et sur l'origine des viandes est disponible sur place, auprès du personnel.</p>
+    <p>Le site ne permet ni de commander ni de payer : les commandes se passent par téléphone, au comptoir, ou sur Uber Eats, service tiers régi par ses propres conditions. Aucun contrat n'étant conclu par l'intermédiaire du site, il ne comporte pas de conditions générales de vente ; ses <a href="#cgu">conditions d'utilisation</a> figurent ci-dessous.</p>
   </section>
 
-  <section class="block">
-    <h2>Responsabilité</h2>
-    <p>
-      L'éditeur s'efforce de tenir ce site à jour. La carte, les tarifs et les horaires sont susceptibles d'évoluer à tout moment ; seuls ceux affichés dans l'établissement, 16 rue Esnoul des Châtelets à Nantes, font foi.
-    </p>
-    <p>
-      Le site comporte des liens vers des sites tiers (Uber Eats, Instagram, Google Maps). L'éditeur n'a aucun contrôle sur leur contenu et décline toute responsabilité à leur égard. Ouvrir l'un de ces liens vous soumet à la politique de confidentialité du service concerné.
-    </p>
+  <section class="block" id="responsabilite">
+    <h2>7. Responsabilité et liens</h2>
+    <p>L'éditeur s'efforce de tenir les informations du site exactes et à jour, sans pouvoir garantir l'absence d'erreur ou d'interruption. Il ne saurait être tenu responsable d'un dommage résultant de l'utilisation du site ou de l'impossibilité d'y accéder.</p>
+    <p>Le site renvoie vers des services tiers (Uber Eats, Instagram, Google Maps) sur le contenu desquels l'éditeur n'a aucun contrôle. Ces liens s'ouvrent dans un nouvel onglet ; rien n'est chargé depuis ces services tant que vous ne cliquez pas.</p>
   </section>
 
-  <section class="block">
-    <h2>Allergènes et information du consommateur</h2>
-    <p>
-      Les descriptions de la carte publiées sur ce site sont indicatives et ne valent pas information réglementaire sur les allergènes. L'information sur les quatorze allergènes à déclaration obligatoire (règlement UE n° 1169/2011) est délivrée dans l'établissement. La mention « 100 % Halal » affichée sur la carte relève de l'exploitant : <span class="manque">[justificatif de certification à fournir]</span>.
-    </p>
+  <section class="block" id="cgu">
+    <h2>8. Conditions d'utilisation</h2>
+    <p>Le site est un site vitrine : il ne propose ni compte, ni paiement, ni espace de publication. Le consulter vaut acceptation des conditions suivantes.</p>
+    <h3>Accès</h3>
+    <p>Le site est accessible gratuitement et sans inscription. L'éditeur peut en suspendre l'accès, notamment pour maintenance, sans préavis ni indemnité.</p>
+    <h3>Informations publiées</h3>
+    <p>Concept, carte, prix, horaires et moyens de commande sont donnés à titre indicatif (voir l'article 6). Les avis cités sont des extraits d'avis publics laissés sur Google et d'un article de presse, reproduits avec leur source et leur date.</p>
+    <h3>Commandes</h3>
+    <p>Le site ne permet ni de commander ni de payer. Les commandes passées au comptoir ou par téléphone au <a href="tel:+33768193423">07 68 19 34 23</a> sont conclues directement avec le restaurant ; celles passées sur Uber Eats relèvent des conditions d'Uber Eats.</p>
+    <h3>Liens vers ce site</h3>
+    <p>Partager un lien vers une page du site est libre, à condition de ne pas l'afficher à l'intérieur d'un autre site (cadre ou iframe) ni de laisser croire à un partenariat.</p>
+    <h3>Évolution</h3>
+    <p>Ces conditions peuvent être modifiées à tout moment ; la version applicable est celle publiée sur cette page à la date de consultation.</p>
   </section>
 
-  <section class="block">
-    <h2>Accessibilité</h2>
-    <p>
-      Ce site a été développé en visant les critères du référentiel WCAG 2.2 niveau AA : structure sémantique, navigation au clavier, contrastes vérifiés, textes alternatifs et respect du réglage système « réduire les animations ». Si vous rencontrez une difficulté d'accès à une information, signalez-la à l'éditeur (<span class="manque">[e-mail à fournir]</span>) : elle sera corrigée.
-    </p>
+  <section class="block" id="donnees">
+    <h2>9. Données personnelles et cookies</h2>
+    <p>Ce site ne comporte aucun formulaire, aucun compte et ne dépose aucun cookie. La mesure d'audience utilisée fonctionne sans cookie et vous pouvez vous y opposer. Tout est détaillé dans la <a href="/politique-confidentialite">politique de confidentialité</a> et la page <a href="/cookies">cookies</a>.</p>
   </section>
 
-  <section class="block">
-    <h2>Droit applicable</h2>
-    <p>
-      Le présent site est soumis au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français sont compétents.
-    </p>
-  </section>
-
-  <section class="block">
-    <h2>Nous écrire</h2>
-    <p>
-      La Baraka — 16 rue Esnoul des Châtelets, 44200 Nantes.<br>
-      Téléphone : <a href="tel:+33699844955">06 99 84 49 55</a> ·
-      E-mail : <span class="manque">[à fournir]</span>
-    </p>
+  <section class="block" id="droit">
+    <h2>10. Droit applicable</h2>
+    <p>Le site, les présentes mentions et ses conditions d'utilisation sont soumis au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français sont compétents.</p>
+    <p>Pour toute question : La Baraka, 16 rue Esnoul des Châtelets, 44200 Nantes — <a href="tel:+33768193423">07 68 19 34 23</a>.</p>
   </section>
 
   <div class="legal-actions">
     <a class="a-rouge" href="/">Retour à l'accueil</a>
-    <a class="a-creme" href="/politique-confidentialite">Confidentialité &amp; cookies</a>
+    <a class="a-creme" href="/politique-confidentialite">Confidentialité</a>
   </div>
-
 </main>
 
+<div class="checker-band" aria-hidden="true"></div>
 <footer>
   <div class="foot-logo">La Baraka</div>
-  <p>© 2026 La Baraka · SAS · 16 rue Esnoul des Châtelets, Nantes — Site de démonstration</p>
-  <p class="foot-legal">
+  <p>BARAKA SAS · 16 rue Esnoul des Châtelets, 44200 Nantes</p>
+  <nav aria-label="Informations légales">
     <a href="/mentions-legales" aria-current="page">Mentions légales</a>
-    <span class="sep">·</span>
     <a href="/politique-confidentialite">Confidentialité</a>
-    <span class="sep">·</span>
-    <a href="/politique-confidentialite#cookies">Cookies</a>
-  </p>
-  <p class="foot-sign">Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></p>
+    <a href="/cookies">Cookies</a>
+    <a href="/mentions-legales#cgu">Conditions d'utilisation</a>
+  </nav>
+  <p class="sign">© 2026 La Baraka · Création <a href="https://vokumagency.com" target="_blank" rel="noopener">Vokum</a></p>
 </footer>
-
 </body>
 </html>
