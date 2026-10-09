@@ -55,5 +55,5 @@ Tant que ce n'est pas fait, `/_vercel/insights/script.js` répond 404 (aucun imp
 
 ## 5. À trancher
 
-- **Statut du site** : la mention « Site de démonstration » a été retirée du pied de page, le site étant en ligne, indexable et édité au nom de la SAS BARAKA. Si la maison n'a pas validé le site, repasser en `noindex` et déclarer Vokum comme éditeur.
+- **Statut du site** : maquette de prospection, **masquée des moteurs** depuis le 9 oct. 2026 (`<meta name="robots" content="noindex, nofollow">` sur l'accueil + en-tête `X-Robots-Tag` dans `vercel.json`), comme Jimmy's. À la validation par l'établissement : retirer les deux, garder `robots.txt` et `sitemap.xml` tels quels.
 - **Domaine** : `la-baraka-jet.vercel.app`. En cas de nom de domaine propre, mettre à jour canonical, `og:url`, `og:image`, JSON-LD, `sitemap.xml`, `robots.txt`.
